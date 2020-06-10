@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов» [![Build status][travis-image]][travis-url]
 
 * Студент: [Виталий Дедюрин](https://up.htmlacademy.ru/react/4/user/124413).
-* Наставник: `Неизвестно`.
+* Наставник: [Вадим Атрощенко](https://up.htmlacademy.ru/react/4/user/1351257).
 
 ---
 

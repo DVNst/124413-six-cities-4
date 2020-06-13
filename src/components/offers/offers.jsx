@@ -1,25 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Offer from "../offer/offer.jsx";
 
-import Main from "../main/main.jsx";
-
-const App = (props) => {
-  const {cities, offersCount, offers} = props;
+const Offers = (props) => {
+  const {offers} = props;
 
   return (
-    <Main
-      cities={cities}
-      offers = {offers}
-      offersCount={offersCount}
-    />
+    <div className="cities__places-list places__list tabs__content">
+      {offers.map((offer) =>
+        <Offer
+          key={offer.id}
+          offer={offer}
+        />
+      )}
+    </div>
   );
 };
 
-App.propTypes = {
-  cities: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    active: PropTypes.bool.isRequired,
-  })).isRequired,
+Offers.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     city: PropTypes.string.isRequired,
@@ -32,7 +30,6 @@ App.propTypes = {
     img: PropTypes.string.isRequired,
     coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
   })).isRequired,
-  offersCount: PropTypes.number.isRequired
 };
 
-export default App;
+export default Offers;

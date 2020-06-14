@@ -1,6 +1,11 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import App from "./components/app/app.jsx";
+import Enzyme, {mount} from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+import Main from "./main.jsx";
+
+Enzyme.configure({
+  adapter: new Adapter(),
+});
 
 const offersCount = 312;
 
@@ -61,11 +66,20 @@ const offers = [
   }
 ];
 
-ReactDOM.render(
-    <App
-      cities={cities}
-      offersCount={offersCount}
-      offers = {offers}
-    />,
-    document.querySelector(`#root`)
-);
+it(`Should title offer be pressed`, () => {
+  const onClickOfferTitle = jest.fn();
+
+  const mainScreen = mount(
+      <Main
+        cities={cities}
+        offers = {offers}
+        offersCount={offersCount}
+        onClickOfferTitle={onClickOfferTitle}
+      />
+  );
+
+  const firstOfferTitle = mainScreen.find(`.place-card__name a`).first();
+  firstOfferTitle.simulate(`click`);
+
+  expect(onClickOfferTitle.mock.calls.length).toBe(1);
+});

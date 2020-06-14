@@ -1,17 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import App from "./components/app/app.jsx";
-
-const offersCount = 312;
-
-const cities = [
-  {name: `Paris`, active: false},
-  {name: `Cologne`, active: false},
-  {name: `Brussels`, active: false},
-  {name: `Amsterdam`, active: true},
-  {name: `Hamburg`, active: false},
-  {name: `Dusseldorf`, active: false},
-];
+import renderer from "react-test-renderer";
+import Offers from "./offers.jsx";
 
 const offers = [
   {
@@ -61,11 +50,13 @@ const offers = [
   }
 ];
 
-ReactDOM.render(
-    <App
-      cities={cities}
-      offersCount={offersCount}
-      offers = {offers}
-    />,
-    document.querySelector(`#root`)
-);
+it(`Render Offers`, () => {
+  const tree = renderer.create(
+      <Offers
+        offers={offers}
+        onClickOfferTitle={() => {}}
+      />)
+    .toJSON();
+
+  expect(tree).toMatchSnapshot();
+});

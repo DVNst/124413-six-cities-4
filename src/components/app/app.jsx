@@ -6,11 +6,14 @@ import Main from "../main/main.jsx";
 const App = (props) => {
   const {cities, offersCount, offers} = props;
 
+  const handlerClickOfferTitle = () => {};
+
   return (
     <Main
       cities={cities}
       offers = {offers}
       offersCount={offersCount}
+      onClickOfferTitle={handlerClickOfferTitle}
     />
   );
 };

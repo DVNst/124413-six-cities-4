@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Offer = (props) => {
-  const {offer} = props;
+  const {offer, onClickOfferTitle} = props;
   const {placeName, type, price, period, rating, mark, img} = offer;
 
   const _mark = mark ?
@@ -42,7 +42,12 @@ const Offer = (props) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{placeName}</a>
+          <a
+            href="#"
+            onClick={() => onClickOfferTitle(offer)}
+          >
+            {placeName}
+          </a>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
@@ -63,7 +68,8 @@ Offer.propTypes = {
     mark: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired,
     coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
-  }).isRequired
+  }).isRequired,
+  onClickOfferTitle: PropTypes.func.isRequired
 };
 
 export default Offer;

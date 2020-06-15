@@ -67,19 +67,19 @@ const offers = [
 ];
 
 it(`Should title offer be pressed`, () => {
-  const onClickOfferTitle = jest.fn();
+  const onOfferTitleClick = jest.fn();
 
   const mainScreen = mount(
       <Main
         cities={cities}
         offers = {offers}
         offersCount={offersCount}
-        onClickOfferTitle={onClickOfferTitle}
+        onOfferTitleClick={onOfferTitleClick}
       />
   );
 
   const firstOfferTitle = mainScreen.find(`.place-card__name a`).first();
   firstOfferTitle.simulate(`click`);
 
-  expect(onClickOfferTitle.mock.calls.length).toBe(1);
+  expect(onOfferTitleClick.mock.calls.length).toBe(1);
 });

@@ -67,7 +67,7 @@ it(`Render Main`, () => {
         cities={cities}
         offersCount={offersCount}
         offers={offers}
-        onClickOfferTitle={() =>{}}
+        onOfferTitleClick={() =>{}}
       />)
     .toJSON();
 

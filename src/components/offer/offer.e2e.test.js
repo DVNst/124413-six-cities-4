@@ -21,17 +21,17 @@ const offer = {
 };
 
 it(`Should title offer be pressed`, () => {
-  const onClickOfferTitle = jest.fn();
+  const onOfferTitleClick = jest.fn();
 
   const offerCart = mount(
       <Offer
         offer = {offer}
-        onClickOfferTitle={onClickOfferTitle}
+        onOfferTitleClick={onOfferTitleClick}
       />
   );
 
   const OfferTitle = offerCart.find(`.place-card__name a`);
   OfferTitle.simulate(`click`);
 
-  expect(onClickOfferTitle.mock.calls.length).toBe(1);
+  expect(onOfferTitleClick.mock.calls.length).toBe(1);
 });

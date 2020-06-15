@@ -32,7 +32,7 @@ it(`Render Offer with mark`, () => {
   const tree = renderer.create(
       <Offer
         offer={offerWithMark}
-        onClickOfferTitle={() =>{}}
+        onOfferTitleClick={() =>{}}
       />)
     .toJSON();
 
@@ -43,7 +43,7 @@ it(`Render Offer without mark`, () => {
   const tree = renderer.create(
       <Offer
         offer={offerWithoutMark}
-        onClickOfferTitle={() =>{}}
+        onOfferTitleClick={() =>{}}
       />)
     .toJSON();
 

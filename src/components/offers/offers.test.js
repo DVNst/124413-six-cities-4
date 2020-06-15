@@ -54,7 +54,7 @@ it(`Render Offers`, () => {
   const tree = renderer.create(
       <Offers
         offers={offers}
-        onClickOfferTitle={() => {}}
+        onOfferTitleClick={() => {}}
       />)
     .toJSON();
 

@@ -2,21 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Offer = (props) => {
-  const {offer, onClickOfferTitle} = props;
+  const {offer, onOfferTitleClick} = props;
   const {placeName, type, price, period, rating, mark, img} = offer;
-
-  const _mark = mark ?
-    <div className="place-card__mark">
-      <span>{mark}</span>
-    </div>
-    :
-    null;
 
   const ratingStars = rating / 5 * 100;
 
   return (
     <article className="cities__place-card place-card">
-      {_mark}
+      {mark &&
+        <div className="place-card__mark">
+          <span>{mark}</span>
+        </div>
+      }
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
           <img className="place-card__image" src={img} width={260} height={200} alt={placeName} />
@@ -44,7 +41,7 @@ const Offer = (props) => {
         <h2 className="place-card__name">
           <a
             href="#"
-            onClick={() => onClickOfferTitle(offer)}
+            onClick={() => onOfferTitleClick(offer)}
           >
             {placeName}
           </a>
@@ -69,7 +66,7 @@ Offer.propTypes = {
     img: PropTypes.string.isRequired,
     coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
   }).isRequired,
-  onClickOfferTitle: PropTypes.func.isRequired
+  onOfferTitleClick: PropTypes.func.isRequired
 };
 
 export default Offer;

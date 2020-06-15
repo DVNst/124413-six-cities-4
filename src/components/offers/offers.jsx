@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Offer from "../offer/offer.jsx";
 
 const Offers = (props) => {
-  const {offers, onClickOfferTitle} = props;
+  const {offers, onOfferTitleClick} = props;
 
   return (
     <div className="cities__places-list places__list tabs__content">
@@ -11,7 +11,7 @@ const Offers = (props) => {
         <Offer
           key={offer.id}
           offer={offer}
-          onClickOfferTitle={onClickOfferTitle}
+          onOfferTitleClick={onOfferTitleClick}
         />
       )}
     </div>
@@ -31,7 +31,7 @@ Offers.propTypes = {
     img: PropTypes.string.isRequired,
     coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
   })).isRequired,
-  onClickOfferTitle: PropTypes.func.isRequired
+  onOfferTitleClick: PropTypes.func.isRequired
 };
 
 export default Offers;

@@ -1,6 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import App from "./components/app/app.jsx";
+import renderer from "react-test-renderer";
+import App from "./app.jsx";
 
 const offersCount = 312;
 
@@ -61,11 +61,14 @@ const offers = [
   }
 ];
 
-ReactDOM.render(
-    <App
-      cities={cities}
-      offersCount={offersCount}
-      offers = {offers}
-    />,
-    document.querySelector(`#root`)
-);
+it(`Render App`, () => {
+  const tree = renderer.create(
+      <App
+        cities={cities}
+        offersCount={offersCount}
+        offers={offers}
+      />)
+    .toJSON();
+
+  expect(tree).toMatchSnapshot();
+});

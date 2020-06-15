@@ -6,7 +6,7 @@ import Locations from "../locations/locations.jsx";
 import Offers from "../offers/offers.jsx";
 
 const Main = (props) => {
-  const {cities, offersCount, offers} = props;
+  const {cities, offersCount, offers, onOfferTitleClick} = props;
 
   return (
     <React.Fragment>
@@ -51,6 +51,7 @@ const Main = (props) => {
                 </form>
                 <Offers
                   offers={offers}
+                  onOfferTitleClick = {onOfferTitleClick}
                 />
               </section>
               <div className="cities__right-section">
@@ -81,7 +82,8 @@ Main.propTypes = {
     img: PropTypes.string.isRequired,
     coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
   })).isRequired,
-  offersCount: PropTypes.number.isRequired
+  offersCount: PropTypes.number.isRequired,
+  onOfferTitleClick: PropTypes.func.isRequired
 };
 
 export default Main;

@@ -285,7 +285,7 @@ Array [
                     href="#"
                   >
                     <img
-                      alt="Beautiful & luxurious apartment at great location"
+                      alt="Luxury loft 15 min from Amsterdam Central Station"
                       className="place-card__image"
                       height={200}
                       src="img/apartment-01.jpg"
@@ -305,7 +305,7 @@ Array [
                       <b
                         className="place-card__price-value"
                       >
-                        120
+                        100
                       </b>
                       <span
                         className="place-card__price-text"
@@ -343,7 +343,7 @@ Array [
                       <span
                         style={
                           Object {
-                            "width": "96%",
+                            "width": "90%",
                           }
                         }
                       />
@@ -361,7 +361,7 @@ Array [
                       href="#"
                       onClick={[Function]}
                     >
-                      Beautiful & luxurious apartment at great location
+                      Luxury loft 15 min from Amsterdam Central Station
                     </a>
                   </h2>
                   <p
@@ -384,7 +384,7 @@ Array [
                     href="#"
                   >
                     <img
-                      alt="Wood and stone place"
+                      alt="Budget Twin Studio with Street Art in Amsterdam"
                       className="place-card__image"
                       height={200}
                       src="img/room.jpg"
@@ -404,7 +404,7 @@ Array [
                       <b
                         className="place-card__price-value"
                       >
-                        80
+                        50
                       </b>
                       <span
                         className="place-card__price-text"
@@ -442,7 +442,7 @@ Array [
                       <span
                         style={
                           Object {
-                            "width": "84.00000000000001%",
+                            "width": "76%",
                           }
                         }
                       />
@@ -460,7 +460,7 @@ Array [
                       href="#"
                       onClick={[Function]}
                     >
-                      Wood and stone place
+                      Budget Twin Studio with Street Art in Amsterdam
                     </a>
                   </h2>
                   <p
@@ -483,7 +483,7 @@ Array [
                     href="#"
                   >
                     <img
-                      alt="Canal View Prinsengracht"
+                      alt="Generator - Bed in 4 bed Dorm"
                       className="place-card__image"
                       height={200}
                       src="img/apartment-02.jpg"
@@ -503,7 +503,7 @@ Array [
                       <b
                         className="place-card__price-value"
                       >
-                        132
+                        35
                       </b>
                       <span
                         className="place-card__price-text"
@@ -541,7 +541,7 @@ Array [
                       <span
                         style={
                           Object {
-                            "width": "94%",
+                            "width": "86%",
                           }
                         }
                       />
@@ -559,7 +559,7 @@ Array [
                       href="#"
                       onClick={[Function]}
                     >
-                      Canal View Prinsengracht
+                      Generator - Bed in 4 bed Dorm
                     </a>
                   </h2>
                   <p
@@ -588,7 +588,7 @@ Array [
                     href="#"
                   >
                     <img
-                      alt="Nice, cozy, warm big bed apartment"
+                      alt="Houseboot Amsterdam"
                       className="place-card__image"
                       height={200}
                       src="img/apartment-03.jpg"
@@ -608,7 +608,7 @@ Array [
                       <b
                         className="place-card__price-value"
                       >
-                        180
+                        67
                       </b>
                       <span
                         className="place-card__price-text"
@@ -664,7 +664,7 @@ Array [
                       href="#"
                       onClick={[Function]}
                     >
-                      Nice, cozy, warm big bed apartment
+                      Houseboot Amsterdam
                     </a>
                   </h2>
                   <p

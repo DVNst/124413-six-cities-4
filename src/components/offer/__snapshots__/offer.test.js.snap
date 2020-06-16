@@ -20,7 +20,7 @@ exports[`Render Offer with mark 1`] = `
       href="#"
     >
       <img
-        alt="Beautiful & luxurious apartment at great location"
+        alt="Private room in a Apartment (close to schiphol)"
         className="place-card__image"
         height={200}
         src="img/apartment-01.jpg"
@@ -40,7 +40,7 @@ exports[`Render Offer with mark 1`] = `
         <b
           className="place-card__price-value"
         >
-          120
+          100
         </b>
         <span
           className="place-card__price-text"
@@ -78,7 +78,7 @@ exports[`Render Offer with mark 1`] = `
         <span
           style={
             Object {
-              "width": "96%",
+              "width": "90%",
             }
           }
         />
@@ -96,7 +96,7 @@ exports[`Render Offer with mark 1`] = `
         href="#"
         onClick={[Function]}
       >
-        Beautiful & luxurious apartment at great location
+        Private room in a Apartment (close to schiphol)
       </a>
     </h2>
     <p
@@ -122,7 +122,7 @@ exports[`Render Offer without mark 1`] = `
       href="#"
     >
       <img
-        alt="Wood and stone place"
+        alt="Central stylish room at Vondelpark"
         className="place-card__image"
         height={200}
         src="img/room.jpg"
@@ -142,7 +142,7 @@ exports[`Render Offer without mark 1`] = `
         <b
           className="place-card__price-value"
         >
-          80
+          70
         </b>
         <span
           className="place-card__price-text"
@@ -180,7 +180,7 @@ exports[`Render Offer without mark 1`] = `
         <span
           style={
             Object {
-              "width": "84.00000000000001%",
+              "width": "80%",
             }
           }
         />
@@ -198,7 +198,7 @@ exports[`Render Offer without mark 1`] = `
         href="#"
         onClick={[Function]}
       >
-        Wood and stone place
+        Central stylish room at Vondelpark
       </a>
     </h2>
     <p

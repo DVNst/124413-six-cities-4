@@ -184,7 +184,7 @@ Array [
               <h1
                 className="property__name"
               >
-                Beautiful & luxurious apartment at great location
+                Private room in a Apartment (close to schiphol)
               </h1>
               <button
                 className="property__bookmark-button button"
@@ -215,7 +215,7 @@ Array [
                 <span
                   style={
                     Object {
-                      "width": "96%",
+                      "width": "90%",
                     }
                   }
                 />
@@ -228,7 +228,7 @@ Array [
               <span
                 className="property__rating-value rating__value"
               >
-                4.8
+                4.5
               </span>
             </div>
             <ul
@@ -257,7 +257,7 @@ Array [
                 className="property__price-value"
               >
                 €
-                120
+                100
               </b>
               <span
                 className="property__price-text"
@@ -1097,7 +1097,7 @@ Array [
               <h1
                 className="property__name"
               >
-                Wood and stone place
+                Central stylish room at Vondelpark
               </h1>
               <button
                 className="property__bookmark-button button"
@@ -1128,7 +1128,7 @@ Array [
                 <span
                   style={
                     Object {
-                      "width": "84.00000000000001%",
+                      "width": "80%",
                     }
                   }
                 />
@@ -1141,7 +1141,7 @@ Array [
               <span
                 className="property__rating-value rating__value"
               >
-                4.2
+                4
               </span>
             </div>
             <ul
@@ -1170,7 +1170,7 @@ Array [
                 className="property__price-value"
               >
                 €
-                80
+                70
               </b>
               <span
                 className="property__price-text"

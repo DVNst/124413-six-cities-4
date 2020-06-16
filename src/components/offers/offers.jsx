@@ -5,14 +5,14 @@ import Offer from "../offer/offer.jsx";
 class Offers extends PureComponent {
   constructor(props) {
     super(props);
-    this._hendleOfferCardHover = this._hendleOfferCardHover.bind(this);
+    this._handleOfferCardHover = this._handleOfferCardHover.bind(this);
 
     this.state = {
       offerHover: null,
     };
   }
 
-  _hendleOfferCardHover(offer) {
+  _handleOfferCardHover(offer) {
     this.setState({
       offerHover: offer,
     });
@@ -28,7 +28,7 @@ class Offers extends PureComponent {
             key={offer.id}
             offer={offer}
             onOfferTitleClick={onOfferTitleClick}
-            onOfferCardHover={this._hendleOfferCardHover}
+            onOfferCardHover={this._handleOfferCardHover}
           />
         )}
       </div>

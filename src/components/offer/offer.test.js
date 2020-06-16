@@ -5,27 +5,27 @@ import Offer from "./offer.jsx";
 const offerWithMark = {
   id: 1,
   city: `Amsterdam`,
-  placeName: `Beautiful & luxurious apartment at great location`,
+  placeName: `Private room in a Apartment (close to schiphol)`,
   type: `Apartment`,
-  price: 120,
+  price: 100,
   period: `night`,
-  rating: 4.8,
+  rating: 4.5,
   mark: `Premium`,
   img: `img/apartment-01.jpg`,
-  coordinates: [52.3909553943508, 4.85309666406198],
+  coordinates: [52.39, 4.85],
 };
 
 const offerWithoutMark = {
   id: 2,
   city: `Amsterdam`,
-  placeName: `Wood and stone place`,
+  placeName: `Central stylish room at Vondelpark`,
   type: `Private room`,
-  price: 80,
+  price: 70,
   period: `night`,
-  rating: 4.2,
+  rating: 4.0,
   mark: ``,
   img: `img/room.jpg`,
-  coordinates: [52.369553943508, 4.85309666406198],
+  coordinates: [52.36, 4.84],
 };
 
 it(`Render Offer with mark`, () => {

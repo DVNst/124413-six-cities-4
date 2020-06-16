@@ -3,6 +3,8 @@
 exports[`Render Offer with mark 1`] = `
 <article
   className="cities__place-card place-card"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
 >
   <div
     className="place-card__mark"
@@ -109,6 +111,8 @@ exports[`Render Offer with mark 1`] = `
 exports[`Render Offer without mark 1`] = `
 <article
   className="cities__place-card place-card"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
 >
   
   <div

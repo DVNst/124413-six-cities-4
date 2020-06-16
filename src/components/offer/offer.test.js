@@ -33,6 +33,7 @@ it(`Render Offer with mark`, () => {
       <Offer
         offer={offerWithMark}
         onOfferTitleClick={() =>{}}
+        onOfferCardHover={() =>{}}
       />)
     .toJSON();
 
@@ -44,6 +45,7 @@ it(`Render Offer without mark`, () => {
       <Offer
         offer={offerWithoutMark}
         onOfferTitleClick={() =>{}}
+        onOfferCardHover={() =>{}}
       />)
     .toJSON();
 

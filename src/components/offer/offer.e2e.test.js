@@ -27,6 +27,7 @@ it(`Should title offer be pressed`, () => {
       <Offer
         offer = {offer}
         onOfferTitleClick={onOfferTitleClick}
+        onOfferCardHover={() =>{}}
       />
   );
 

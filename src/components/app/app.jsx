@@ -6,14 +6,14 @@ import Main from "../main/main.jsx";
 const App = (props) => {
   const {cities, offersCount, offers} = props;
 
-  const handleOfferTitleClick = () => {};
+  const _handleOfferTitleClick = () => {};
 
   return (
     <Main
       cities={cities}
       offers = {offers}
       offersCount={offersCount}
-      onOfferTitleClick={handleOfferTitleClick}
+      onOfferTitleClick={_handleOfferTitleClick}
     />
   );
 };

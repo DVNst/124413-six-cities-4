@@ -1,10 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Offer = (props) => {
-  const {offer, onOfferTitleClick, onOfferCardHover} = props;
+const Offer = ({offer, onOfferTitleClick, onOfferCardHover}) => {
   const {placeName, type, price, period, rating, mark, img} = offer;
-
   const ratingStars = rating / 5 * 100;
 
   return (

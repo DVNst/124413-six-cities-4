@@ -2,13 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Offer = (props) => {
-  const {offer, onOfferTitleClick} = props;
+  const {offer, onOfferTitleClick, onOfferCardHover} = props;
   const {placeName, type, price, period, rating, mark, img} = offer;
 
   const ratingStars = rating / 5 * 100;
 
   return (
-    <article className="cities__place-card place-card">
+    <article
+      className="cities__place-card place-card"
+      onMouseOver={() => onOfferCardHover(offer)}
+      onMouseOut={() => onOfferCardHover(null)}
+    >
       {mark &&
         <div className="place-card__mark">
           <span>{mark}</span>
@@ -66,7 +70,8 @@ Offer.propTypes = {
     img: PropTypes.string.isRequired,
     coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
   }).isRequired,
-  onOfferTitleClick: PropTypes.func.isRequired
+  onOfferTitleClick: PropTypes.func.isRequired,
+  onOfferCardHover: PropTypes.func.isRequired,
 };
 
 export default Offer;

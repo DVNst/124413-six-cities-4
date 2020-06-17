@@ -10,14 +10,14 @@ Enzyme.configure({
 const offer = {
   id: 1,
   city: `Amsterdam`,
-  placeName: `Beautiful & luxurious apartment at great location`,
+  placeName: `Private room in a Apartment (close to schiphol)`,
   type: `Apartment`,
-  price: 120,
+  price: 100,
   period: `night`,
-  rating: 4.8,
+  rating: 4.5,
   mark: `Premium`,
   img: `img/apartment-01.jpg`,
-  coordinates: [52.3909553943508, 4.85309666406198],
+  coordinates: [52.39, 4.85],
 };
 
 it(`Should title offer be pressed`, () => {
@@ -27,6 +27,7 @@ it(`Should title offer be pressed`, () => {
       <Offer
         offer = {offer}
         onOfferTitleClick={onOfferTitleClick}
+        onOfferCardHover={() =>{}}
       />
   );
 

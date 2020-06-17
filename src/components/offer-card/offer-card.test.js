@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Offer from "./offer.jsx";
+import OfferCard from "./offer-card.jsx";
 
 const offerWithMark = {
   id: 1,
@@ -28,24 +28,20 @@ const offerWithoutMark = {
   coordinates: [52.36, 4.84],
 };
 
-it(`Render Offer with mark`, () => {
+it(`Render OfferCard with mark`, () => {
   const tree = renderer.create(
-      <Offer
+      <OfferCard
         offer={offerWithMark}
-        onOfferTitleClick={() =>{}}
-        onOfferCardHover={() =>{}}
       />)
     .toJSON();
 
   expect(tree).toMatchSnapshot();
 });
 
-it(`Render Offer without mark`, () => {
+it(`Render OfferCard without mark`, () => {
   const tree = renderer.create(
-      <Offer
+      <OfferCard
         offer={offerWithoutMark}
-        onOfferTitleClick={() =>{}}
-        onOfferCardHover={() =>{}}
       />)
     .toJSON();
 

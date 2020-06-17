@@ -1,6 +1,11 @@
 import React from "react";
-import renderer from "react-test-renderer";
+import Enzyme, {mount} from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
 import Offers from "./offers.jsx";
+
+Enzyme.configure({
+  adapter: new Adapter(),
+});
 
 const offers = [
   {
@@ -50,13 +55,19 @@ const offers = [
   }
 ];
 
-it(`Render Offers`, () => {
-  const tree = renderer.create(
+it(`Hover offerCard returns the correct callback (this offerCard)`, () => {
+  const offersList = mount(
       <Offers
-        offers={offers}
+        offers = {offers}
         onOfferTitleClick={() => {}}
-      />)
-    .toJSON();
+      />
+  );
 
-  expect(tree).toMatchSnapshot();
+  const articles = offersList.find(`article`);
+  const firstArticle = articles.at(0);
+
+  expect(offersList.state(`offerHover`)).toBe(null);
+
+  firstArticle.simulate(`mouseOver`);
+  expect(offersList.state(`offerHover`)).toBe(offers[0]);
 });

@@ -1,9 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Locations = (props) => {
-  const {cities} = props;
-
+const Locations = ({cities}) => {
   return (
     <div className="tabs">
       <section className="locations container">

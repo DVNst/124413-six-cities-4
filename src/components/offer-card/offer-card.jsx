@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 
 import Header from "../header/header.jsx";
 
-const OfferCard = (props) => {
-  const {offer} = props;
+const OfferCard = ({offer}) => {
   const {placeName, type, price, period, rating, mark, img} = offer;
 
   const ratingStars = rating / 5 * 100;

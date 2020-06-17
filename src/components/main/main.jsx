@@ -5,9 +5,7 @@ import Header from "../header/header.jsx";
 import Locations from "../locations/locations.jsx";
 import Offers from "../offers/offers.jsx";
 
-const Main = (props) => {
-  const {cities, offersCount, offers, onOfferTitleClick} = props;
-
+const Main = ({cities, offersCount, offers, onOfferTitleClick}) => {
   return (
     <React.Fragment>
       <div style={{display: `none`}}>

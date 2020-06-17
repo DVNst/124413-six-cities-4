@@ -1,18 +1,68 @@
-import React from "react";
+import React, {PureComponent} from "react";
+import {BrowserRouter, Switch, Route} from "react-router-dom";
 import PropTypes from "prop-types";
 
 import Main from "../main/main.jsx";
+import OfferCard from "../offer-card/offer-card.jsx";
 
-const App = ({cities, offersCount, offers}) => {
-  return (
-    <Main
-      cities={cities}
-      offers = {offers}
-      offersCount={offersCount}
-      onOfferTitleClick={() => {}}
-    />
-  );
-};
+class App extends PureComponent {
+  constructor(props) {
+    super(props);
+    this._handleOfferTitleClick = this._handleOfferTitleClick.bind(this);
+    this._renderOfferScreen = this._renderOfferScreen.bind(this);
+
+    this.state = {
+      offerScreen: false,
+    };
+  }
+
+  _handleOfferTitleClick(offer) {
+    this.setState({
+      offerScreen: offer,
+    });
+  }
+
+  _renderOfferScreen() {
+    const {offerScreen} = this.state;
+    const {cities, offersCount, offers} = this.props;
+
+    if (offerScreen) {
+      return (
+        <OfferCard
+          offer={offerScreen}
+        />
+      );
+    } else {
+      return (
+        <Main
+          cities={cities}
+          offers={offers}
+          offersCount={offersCount}
+          onOfferTitleClick={this._handleOfferTitleClick}
+        />
+      );
+    }
+  }
+
+  render() {
+    const {offers} = this.props;
+
+    return (
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            {this._renderOfferScreen()}
+          </Route>
+          <Route exact path="/offer-card">
+            <OfferCard
+              offer={offers[0]}
+            />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    );
+  }
+}
 
 App.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.shape({

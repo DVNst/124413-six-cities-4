@@ -20,11 +20,6 @@ class Map extends PureComponent {
       iconSize: [27, 39]
     });
 
-    const iconActive = leaflet.icon({
-      iconUrl: `img/pin-active.svg`,
-      iconSize: [27, 39]
-    });
-
     const zoom = 12;
     const map = leaflet.map(this._mapRef.current, {
       center: city,

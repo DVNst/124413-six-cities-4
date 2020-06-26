@@ -1,4 +1,4 @@
-import React, {PureComponent, createRef} from "react";
+import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import leaflet from "leaflet";
 
@@ -8,7 +8,7 @@ class Map extends PureComponent {
   constructor(props) {
     super(props);
 
-    this._mapRef = createRef();
+    this._mapRef = React.createRef();
   }
 
   componentDidMount() {
@@ -47,6 +47,7 @@ class Map extends PureComponent {
   render() {
     return (
       <div
+        id="map"
         ref={this._mapRef}
         style={{height: `100%`}}
       />
@@ -62,18 +63,7 @@ class Map extends PureComponent {
 }
 
 Map.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    city: PropTypes.string.isRequired,
-    placeName: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    period: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    mark: PropTypes.string.isRequired,
-    img: PropTypes.string.isRequired,
-    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
-  })).isRequired,
+  offers: PropTypes.array.isRequired,
 };
 
 export default Map;

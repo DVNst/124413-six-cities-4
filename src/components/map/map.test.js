@@ -1,63 +1,61 @@
 import React from "react";
 import renderer from "react-test-renderer";
-
 import Map from "./map.jsx";
 
 const offers = [
   {
-    id: 101,
+    id: 1,
     city: `Amsterdam`,
-    placeName: `placeName-1`,
+    placeName: `Beautiful & luxurious apartment at great location`,
     type: `Apartment`,
-    price: 100,
+    price: 120,
     period: `night`,
-    rating: 4.5,
+    rating: 4.8,
     mark: `Premium`,
-    img: `imgPath-1`,
-    coordinates: [52, 4],
+    img: `img/apartment-01.jpg`,
+    coordinates: [52.3909553943508, 4.85309666406198],
   }, {
-    id: 202,
+    id: 2,
     city: `Amsterdam`,
-    placeName: `placeName-2`,
+    placeName: `Wood and stone place`,
     type: `Private room`,
-    price: 50,
+    price: 80,
     period: `night`,
-    rating: 3.8,
+    rating: 4.2,
     mark: ``,
-    img: `imgPath-2`,
-    coordinates: [52.1, 4.1],
+    img: `img/room.jpg`,
+    coordinates: [52.369553943508, 4.85309666406198],
   }, {
-    id: 303,
+    id: 3,
     city: `Amsterdam`,
-    placeName: `placeName-3`,
+    placeName: `Canal View Prinsengracht`,
     type: `Apartment`,
-    price: 35,
+    price: 132,
     period: `night`,
-    rating: 4.3,
+    rating: 4.7,
     mark: ``,
-    img: `imgPath-3`,
-    coordinates: [52.2, 4.2],
+    img: `img/apartment-02.jpg`,
+    coordinates: [52.3909553943508, 4.929309666406198],
   }, {
-    id: 404,
+    id: 4,
     city: `Amsterdam`,
-    placeName: `placeName-4`,
+    placeName: `Nice, cozy, warm big bed apartment`,
     type: `Apartment`,
-    price: 67,
+    price: 180,
     period: `night`,
     rating: 5,
     mark: `Premium`,
-    img: `imgPath-4`,
-    coordinates: [52.3, 4.3],
-  }
+    img: `img/apartment-03.jpg`,
+    coordinates: [52.3809553943508, 4.939309666406198],
+  },
 ];
 
 it(`Should Map render correctly`, () => {
-  const tree = renderer.create(
-      <Map
-        offers={offers}
-      />, {
-        createNodeMock: () => document.createElement(`div`)
-      })
+  const tree = renderer
+    .create(
+        <Map
+          offers={offers}
+        />)
     .toJSON();
 
   expect(tree).toMatchSnapshot();

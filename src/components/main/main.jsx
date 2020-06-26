@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import Header from "../header/header.jsx";
 import Locations from "../locations/locations.jsx";
 import Offers from "../offers/offers.jsx";
+import Map from "../map/map.jsx";
 
 const Main = ({cities, offersCount, offers, onOfferTitleClick}) => {
   return (
@@ -53,7 +54,11 @@ const Main = ({cities, offersCount, offers, onOfferTitleClick}) => {
                 />
               </section>
               <div className="cities__right-section">
-                <section className="cities__map map" />
+                <section className="cities__map map">
+                  <Map
+                    offers={offers}
+                  />
+                </section>
               </div>
             </div>
           </div>

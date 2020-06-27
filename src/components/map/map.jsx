@@ -2,8 +2,6 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import leaflet from "leaflet";
 
-import {cities} from "../../const.js";
-
 class Map extends PureComponent {
   constructor(props) {
     super(props);
@@ -12,8 +10,8 @@ class Map extends PureComponent {
   }
 
   componentDidMount() {
-    const city = cities[3].coordinates;
-    const {offers} = this.props;
+    const {offers, cityActive} = this.props;
+    const city = cityActive.coordinates;
 
     const icon = leaflet.icon({
       iconUrl: `img/pin.svg`,
@@ -63,7 +61,23 @@ class Map extends PureComponent {
 }
 
 Map.propTypes = {
-  offers: PropTypes.array.isRequired,
+  cityActive: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    coordinates: PropTypes.arrayOf[PropTypes.number],
+    active: PropTypes.bool.isRequired,
+  }).isRequired,
+  offers: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    city: PropTypes.string.isRequired,
+    placeName: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    period: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    mark: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
+    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
+  })).isRequired,
 };
 
 export default Map;

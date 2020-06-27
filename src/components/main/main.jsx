@@ -7,6 +7,8 @@ import Offers from "../offers/offers.jsx";
 import Map from "../map/map.jsx";
 
 const Main = ({cities, offersCount, offers, onOfferTitleClick}) => {
+  const cityActive = cities.find((city) => city.active);
+
   return (
     <React.Fragment>
       <div style={{display: `none`}}>
@@ -16,9 +18,7 @@ const Main = ({cities, offersCount, offers, onOfferTitleClick}) => {
         <Header />
         <main className="page__main page__main--index">
           <h1 className="visually-hidden">Cities</h1>
-          <Locations
-            cities={cities}
-          />
+          <Locations cities={cities} />
           <div className="cities">
             <div className="cities__places-container container">
               <section className="cities__places places">
@@ -56,6 +56,7 @@ const Main = ({cities, offersCount, offers, onOfferTitleClick}) => {
               <div className="cities__right-section">
                 <section className="cities__map map">
                   <Map
+                    cityActive={cityActive}
                     offers={offers}
                   />
                 </section>
@@ -71,6 +72,7 @@ const Main = ({cities, offersCount, offers, onOfferTitleClick}) => {
 Main.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
+    coordinates: PropTypes.arrayOf[PropTypes.number],
     active: PropTypes.bool.isRequired,
   })).isRequired,
   offers: PropTypes.arrayOf(PropTypes.shape({

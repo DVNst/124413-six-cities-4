@@ -4,57 +4,60 @@ import Map from "./map.jsx";
 
 const offers = [
   {
-    id: 1,
+    id: 101,
     city: `Amsterdam`,
-    placeName: `Beautiful & luxurious apartment at great location`,
+    placeName: `Luxury loft 15 min from Amsterdam Central Station`,
     type: `Apartment`,
-    price: 120,
+    price: 100,
     period: `night`,
-    rating: 4.8,
+    rating: 4.5,
     mark: `Premium`,
     img: `img/apartment-01.jpg`,
-    coordinates: [52.3909553943508, 4.85309666406198],
+    coordinates: [52, 4],
   }, {
-    id: 2,
+    id: 202,
     city: `Amsterdam`,
-    placeName: `Wood and stone place`,
+    placeName: `Budget Twin Studio with Street Art in Amsterdam`,
     type: `Private room`,
-    price: 80,
+    price: 50,
     period: `night`,
-    rating: 4.2,
+    rating: 3.8,
     mark: ``,
     img: `img/room.jpg`,
-    coordinates: [52.369553943508, 4.85309666406198],
+    coordinates: [52.1, 4.1],
   }, {
-    id: 3,
+    id: 303,
     city: `Amsterdam`,
-    placeName: `Canal View Prinsengracht`,
+    placeName: `Generator - Bed in 4 bed Dorm`,
     type: `Apartment`,
-    price: 132,
+    price: 35,
     period: `night`,
-    rating: 4.7,
+    rating: 4.3,
     mark: ``,
     img: `img/apartment-02.jpg`,
-    coordinates: [52.3909553943508, 4.929309666406198],
+    coordinates: [52.2, 4.2],
   }, {
-    id: 4,
+    id: 404,
     city: `Amsterdam`,
-    placeName: `Nice, cozy, warm big bed apartment`,
+    placeName: `Houseboot Amsterdam`,
     type: `Apartment`,
-    price: 180,
+    price: 67,
     period: `night`,
     rating: 5,
     mark: `Premium`,
     img: `img/apartment-03.jpg`,
-    coordinates: [52.3809553943508, 4.939309666406198],
-  },
+    coordinates: [52.3, 4.3],
+  }
 ];
+
+const cityActive = {name: `Amsterdam`, coordinates: [4, 4], active: true};
 
 it(`Should Map render correctly`, () => {
   const tree = renderer
     .create(
         <Map
           offers={offers}
+          cityActive={cityActive}
         />)
     .toJSON();
 

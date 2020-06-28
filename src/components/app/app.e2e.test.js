@@ -10,12 +10,12 @@ Enzyme.configure({
 const offersCount = 312;
 
 const cities = [
-  {name: `Paris`, active: false},
-  {name: `Cologne`, active: false},
-  {name: `Brussels`, active: false},
-  {name: `Amsterdam`, active: true},
-  {name: `Hamburg`, active: false},
-  {name: `Dusseldorf`, active: false},
+  {name: `Paris`, coordinates: [1, 1], active: false},
+  {name: `Cologne`, coordinates: [2, 2], active: false},
+  {name: `Brussels`, coordinates: [3, 3], active: false},
+  {name: `Amsterdam`, coordinates: [4, 4], active: true},
+  {name: `Hamburg`, coordinates: [5, 5], active: false},
+  {name: `Dusseldorf`, coordinates: [6, 6], active: false},
 ];
 
 const offers = [

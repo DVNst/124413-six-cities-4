@@ -1,22 +1,6 @@
 import React from "react";
-import Enzyme, {mount} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import Main from "./main.jsx";
-
-Enzyme.configure({
-  adapter: new Adapter(),
-});
-
-const offersCount = 312;
-
-const cities = [
-  {name: `Paris`, coordinates: [1, 1], active: false},
-  {name: `Cologne`, coordinates: [2, 2], active: false},
-  {name: `Brussels`, coordinates: [3, 3], active: false},
-  {name: `Amsterdam`, coordinates: [4, 4], active: true},
-  {name: `Hamburg`, coordinates: [5, 5], active: false},
-  {name: `Dusseldorf`, coordinates: [6, 6], active: false},
-];
+import renderer from "react-test-renderer";
+import Map from "./map.jsx";
 
 const offers = [
   {
@@ -66,20 +50,16 @@ const offers = [
   }
 ];
 
-it(`Should title offer be pressed`, () => {
-  const onOfferTitleClick = jest.fn();
+const cityActive = {name: `Amsterdam`, coordinates: [4, 4], active: true};
 
-  const mainScreen = mount(
-      <Main
-        cities={cities}
-        offers = {offers}
-        offersCount={offersCount}
-        onOfferTitleClick={onOfferTitleClick}
-      />
-  );
+it(`Should Map render correctly`, () => {
+  const tree = renderer
+    .create(
+        <Map
+          offers={offers}
+          cityActive={cityActive}
+        />)
+    .toJSON();
 
-  const firstOfferTitle = mainScreen.find(`.place-card__name a`).first();
-  firstOfferTitle.simulate(`click`);
-
-  expect(onOfferTitleClick.mock.calls.length).toBe(1);
+  expect(tree).toMatchSnapshot();
 });

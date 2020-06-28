@@ -31,6 +31,7 @@ const Locations = ({cities}) => {
 Locations.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
+    coordinates: PropTypes.arrayOf[PropTypes.number],
     active: PropTypes.bool.isRequired,
   })).isRequired,
 };

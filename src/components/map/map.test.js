@@ -50,14 +50,14 @@ const offers = [
   }
 ];
 
-const cityActive = {name: `Amsterdam`, coordinates: [4, 4], active: true};
+const coordinates = [4, 4];
 
 it(`Should Map render correctly`, () => {
   const tree = renderer
     .create(
         <Map
           offers={offers}
-          cityActive={cityActive}
+          coordinates={coordinates}
         />)
     .toJSON();
 

@@ -56,7 +56,7 @@ const Main = ({cities, offersCount, offers, onOfferTitleClick}) => {
               <div className="cities__right-section">
                 <section className="cities__map map">
                   <Map
-                    cityActive={cityActive}
+                    coordinates={cityActive.coordinates}
                     offers={offers}
                   />
                 </section>
@@ -72,7 +72,7 @@ const Main = ({cities, offersCount, offers, onOfferTitleClick}) => {
 Main.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
-    coordinates: PropTypes.arrayOf[PropTypes.number],
+    coordinates: PropTypes.arrayOf(PropTypes.number),
     active: PropTypes.bool.isRequired,
   })).isRequired,
   offers: PropTypes.arrayOf(PropTypes.shape({

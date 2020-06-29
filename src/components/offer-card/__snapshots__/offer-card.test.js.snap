@@ -408,7 +408,66 @@ Array [
                     <span
                       className="reviews__user-name"
                     >
-                      Max
+                      User1
+                    </span>
+                  </div>
+                  <div
+                    className="reviews__info"
+                  >
+                    <div
+                      className="reviews__rating rating"
+                    >
+                      <div
+                        className="reviews__stars rating__stars"
+                      >
+                        <span
+                          style={
+                            Object {
+                              "width": "100%",
+                            }
+                          }
+                        />
+                        <span
+                          className="visually-hidden"
+                        >
+                          Rating
+                        </span>
+                      </div>
+                    </div>
+                    <p
+                      className="reviews__text"
+                    >
+                      description user 1
+                    </p>
+                    <time
+                      className="reviews__time"
+                      dateTime="10-04-2020"
+                    >
+                      April 2020
+                    </time>
+                  </div>
+                </li>
+                <li
+                  className="reviews__item"
+                >
+                  <div
+                    className="reviews__user user"
+                  >
+                    <div
+                      className="reviews__avatar-wrapper user__avatar-wrapper"
+                    >
+                      <img
+                        alt="Reviews avatar"
+                        className="reviews__avatar user__avatar"
+                        height={54}
+                        src="img/avatar-max.jpg"
+                        width={54}
+                      />
+                    </div>
+                    <span
+                      className="reviews__user-name"
+                    >
+                      User2
                     </span>
                   </div>
                   <div
@@ -437,13 +496,13 @@ Array [
                     <p
                       className="reviews__text"
                     >
-                      A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
+                      description user 2
                     </p>
                     <time
                       className="reviews__time"
-                      dateTime="2019-04-24"
+                      dateTime="20-03-2020"
                     >
-                      April 2019
+                      March 2020
                     </time>
                   </div>
                 </li>
@@ -1321,7 +1380,66 @@ Array [
                     <span
                       className="reviews__user-name"
                     >
-                      Max
+                      User1
+                    </span>
+                  </div>
+                  <div
+                    className="reviews__info"
+                  >
+                    <div
+                      className="reviews__rating rating"
+                    >
+                      <div
+                        className="reviews__stars rating__stars"
+                      >
+                        <span
+                          style={
+                            Object {
+                              "width": "100%",
+                            }
+                          }
+                        />
+                        <span
+                          className="visually-hidden"
+                        >
+                          Rating
+                        </span>
+                      </div>
+                    </div>
+                    <p
+                      className="reviews__text"
+                    >
+                      description user 1
+                    </p>
+                    <time
+                      className="reviews__time"
+                      dateTime="10-04-2020"
+                    >
+                      April 2020
+                    </time>
+                  </div>
+                </li>
+                <li
+                  className="reviews__item"
+                >
+                  <div
+                    className="reviews__user user"
+                  >
+                    <div
+                      className="reviews__avatar-wrapper user__avatar-wrapper"
+                    >
+                      <img
+                        alt="Reviews avatar"
+                        className="reviews__avatar user__avatar"
+                        height={54}
+                        src="img/avatar-max.jpg"
+                        width={54}
+                      />
+                    </div>
+                    <span
+                      className="reviews__user-name"
+                    >
+                      User2
                     </span>
                   </div>
                   <div
@@ -1350,13 +1468,13 @@ Array [
                     <p
                       className="reviews__text"
                     >
-                      A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
+                      description user 2
                     </p>
                     <time
                       className="reviews__time"
-                      dateTime="2019-04-24"
+                      dateTime="20-03-2020"
                     >
-                      April 2019
+                      March 2020
                     </time>
                   </div>
                 </li>

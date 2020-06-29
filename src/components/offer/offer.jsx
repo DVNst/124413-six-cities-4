@@ -11,6 +11,8 @@ const Offer = ({offer, onOfferTitleClick, onOfferCardHover}) => {
       onMouseOver={() => onOfferCardHover(offer)}
       onMouseOut={() => onOfferCardHover(null)}
     >
+      {/* <article cities__places-list
+      class="near-places__card place-card">*/}
       {mark &&
         <div className="place-card__mark">
           <span>{mark}</span>

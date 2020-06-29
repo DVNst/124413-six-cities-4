@@ -23,6 +23,7 @@ class Offers extends PureComponent {
 
     return (
       <div className="cities__places-list places__list tabs__content">
+        {/* <div className="near-places__list places__list"> near-places__card*/}
         {offers.map((offer) =>
           <Offer
             key={offer.id}

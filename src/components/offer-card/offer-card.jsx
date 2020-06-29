@@ -5,6 +5,8 @@ import Header from "../header/header.jsx";
 import Map from "../map/map.jsx";
 import OfferReviews from "../offer-reviews/offer-reviews.jsx";
 
+import offersNearby from "../../mocks/offers-nearby.js";
+
 const OfferCard = ({offer, reviews}) => {
   const {placeName, type, price, period, rating, mark, img, coordinates} = offer;
   const ratingStars = rating / 5 * 100;
@@ -140,10 +142,10 @@ const OfferCard = ({offer, reviews}) => {
               </div>
             </div>
             <section className="property__map map">
-              {/* <Map
+              <Map
                 coordinates={coordinates}
-                offers={offers}
-              /> */}
+                offers={offersNearby}
+              />
             </section>
           </section>
           <div className="container">

@@ -40,6 +40,7 @@ exports[`Render Offer with mark 1`] = `
         <b
           className="place-card__price-value"
         >
+          €
           100
         </b>
         <span
@@ -142,6 +143,7 @@ exports[`Render Offer without mark 1`] = `
         <b
           className="place-card__price-value"
         >
+          €
           70
         </b>
         <span

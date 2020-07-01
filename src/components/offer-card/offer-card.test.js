@@ -51,6 +51,7 @@ it(`Render OfferCard with mark`, () => {
       <OfferCard
         offer={offerWithMark}
         reviews={reviews}
+        onOfferTitleClick={() => {}}
       />)
     .toJSON();
 
@@ -62,6 +63,7 @@ it(`Render OfferCard without mark`, () => {
       <OfferCard
         offer={offerWithoutMark}
         reviews={reviews}
+        onOfferTitleClick={() => {}}
       />)
     .toJSON();
 

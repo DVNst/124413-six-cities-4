@@ -50,11 +50,15 @@ const offers = [
   }
 ];
 
+const offerclassName = `cities`;
+
 it(`Render Offers`, () => {
   const tree = renderer.create(
       <Offers
         offers={offers}
         onOfferTitleClick={() => {}}
+        onOfferCardHover={() => {}}
+        offerclassName={offerclassName}
       />)
     .toJSON();
 

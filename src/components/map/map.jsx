@@ -5,40 +5,50 @@ import leaflet from "leaflet";
 class Map extends PureComponent {
   constructor(props) {
     super(props);
+    this._addMarkers = this._addMarkers.bind(this);
 
     this._mapRef = React.createRef();
   }
 
-  componentDidMount() {
-    const {offers, coordinates: city} = this.props;
+  _addMarkers(offers, offerActive) {
+    offers.map((offer) => {
+      const iconMarker = (offer === offerActive) ? this.iconActive : this.icon;
 
-    const icon = leaflet.icon({
+      leaflet
+        .marker(offer.coordinates, {icon: iconMarker})
+        .addTo(this.map);
+    });
+  }
+
+  componentDidMount() {
+    const {offers, offerActive, coordinates: city} = this.props;
+
+    this.icon = leaflet.icon({
       iconUrl: `img/pin.svg`,
       iconSize: [27, 39]
     });
 
+    this.iconActive = leaflet.icon({
+      iconUrl: `img/pin-active.svg`,
+      iconSize: [27, 39]
+    });
+
     const zoom = 12;
-    const map = leaflet.map(this._mapRef.current, {
+    this.map = leaflet.map(this._mapRef.current, {
       center: city,
       zoom,
       zoomControl: false,
       marker: true
     });
-    map.setView(city, zoom);
+    this.map.setView(city, zoom);
 
     leaflet
       .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
         attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
       })
-      .addTo(map);
+      .addTo(this.map);
 
-    offers.map((offer) => {
-      const iconMarker = icon;
-
-      leaflet
-      .marker(offer.coordinates, {icon: iconMarker})
-      .addTo(map);
-    });
+    this._addMarkers(offers, offerActive);
   }
 
   render() {
@@ -73,6 +83,18 @@ Map.propTypes = {
     img: PropTypes.string.isRequired,
     coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
   })).isRequired,
+  offerActive: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    city: PropTypes.string.isRequired,
+    placeName: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    period: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    mark: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
+    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
+  }),
 };
 
 export default Map;

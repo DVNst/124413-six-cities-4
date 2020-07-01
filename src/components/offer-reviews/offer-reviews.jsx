@@ -4,11 +4,18 @@ import PropTypes from "prop-types";
 import OfferReview from "../offer-review/offer-review.jsx";
 
 const OfferReviews = ({reviews}) => {
+  const reviewsLasTen = reviews.sort((a, b) => {
+    const dateA = new Date(a.dateTime);
+    const dateB = new Date(b.dateTime);
+
+    return (dateA <= dateB) ? -1 : 1;
+  }).slice(0, 10);
+
   return (
     <Fragment>
       <h2 className="reviews__title">Reviews · <span className="reviews__amount">{reviews.length}</span></h2>
       <ul className="reviews__list" >
-        {reviews.map((review) =>
+        {reviewsLasTen.map((review) =>
           <OfferReview
             key={review.id}
             review={review}

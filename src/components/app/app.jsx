@@ -32,6 +32,7 @@ class App extends PureComponent {
         <OfferCard
           offer={offerScreen}
           reviews={this._getReviews(offerScreen.id)}
+          onOfferTitleClick={this._handleOfferTitleClick}
         />
       );
     } else {
@@ -66,6 +67,7 @@ class App extends PureComponent {
             <OfferCard
               offer={offers[0]}
               reviews={this._getReviews(offers[0].id)}
+              onOfferTitleClick={this._handleOfferTitleClick}
             />
           </Route>
         </Switch>

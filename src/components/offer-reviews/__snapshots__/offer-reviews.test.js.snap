@@ -9,7 +9,7 @@ Array [
     <span
       className="reviews__amount"
     >
-      2
+      12
     </span>
   </h2>,
   <ul
@@ -35,66 +35,7 @@ Array [
         <span
           className="reviews__user-name"
         >
-          User1
-        </span>
-      </div>
-      <div
-        className="reviews__info"
-      >
-        <div
-          className="reviews__rating rating"
-        >
-          <div
-            className="reviews__stars rating__stars"
-          >
-            <span
-              style={
-                Object {
-                  "width": "100%",
-                }
-              }
-            />
-            <span
-              className="visually-hidden"
-            >
-              Rating
-            </span>
-          </div>
-        </div>
-        <p
-          className="reviews__text"
-        >
-          description user 1
-        </p>
-        <time
-          className="reviews__time"
-          dateTime="10-04-2020"
-        >
-          April 2020
-        </time>
-      </div>
-    </li>
-    <li
-      className="reviews__item"
-    >
-      <div
-        className="reviews__user user"
-      >
-        <div
-          className="reviews__avatar-wrapper user__avatar-wrapper"
-        >
-          <img
-            alt="Reviews avatar"
-            className="reviews__avatar user__avatar"
-            height={54}
-            src="img/avatar-max.jpg"
-            width={54}
-          />
-        </div>
-        <span
-          className="reviews__user-name"
-        >
-          User2
+          User12
         </span>
       </div>
       <div
@@ -123,13 +64,544 @@ Array [
         <p
           className="reviews__text"
         >
-          description user 2
+          description user 12
         </p>
         <time
           className="reviews__time"
-          dateTime="20-03-2020"
+          dateTime="01-01-2020"
+        >
+          January 2020
+        </time>
+      </div>
+    </li>
+    <li
+      className="reviews__item"
+    >
+      <div
+        className="reviews__user user"
+      >
+        <div
+          className="reviews__avatar-wrapper user__avatar-wrapper"
+        >
+          <img
+            alt="Reviews avatar"
+            className="reviews__avatar user__avatar"
+            height={54}
+            src="img/avatar-max.jpg"
+            width={54}
+          />
+        </div>
+        <span
+          className="reviews__user-name"
+        >
+          User11
+        </span>
+      </div>
+      <div
+        className="reviews__info"
+      >
+        <div
+          className="reviews__rating rating"
+        >
+          <div
+            className="reviews__stars rating__stars"
+          >
+            <span
+              style={
+                Object {
+                  "width": "80%",
+                }
+              }
+            />
+            <span
+              className="visually-hidden"
+            >
+              Rating
+            </span>
+          </div>
+        </div>
+        <p
+          className="reviews__text"
+        >
+          description user 11
+        </p>
+        <time
+          className="reviews__time"
+          dateTime="02-02-2020"
+        >
+          February 2020
+        </time>
+      </div>
+    </li>
+    <li
+      className="reviews__item"
+    >
+      <div
+        className="reviews__user user"
+      >
+        <div
+          className="reviews__avatar-wrapper user__avatar-wrapper"
+        >
+          <img
+            alt="Reviews avatar"
+            className="reviews__avatar user__avatar"
+            height={54}
+            src="img/avatar-max.jpg"
+            width={54}
+          />
+        </div>
+        <span
+          className="reviews__user-name"
+        >
+          User10
+        </span>
+      </div>
+      <div
+        className="reviews__info"
+      >
+        <div
+          className="reviews__rating rating"
+        >
+          <div
+            className="reviews__stars rating__stars"
+          >
+            <span
+              style={
+                Object {
+                  "width": "80%",
+                }
+              }
+            />
+            <span
+              className="visually-hidden"
+            >
+              Rating
+            </span>
+          </div>
+        </div>
+        <p
+          className="reviews__text"
+        >
+          description user 10
+        </p>
+        <time
+          className="reviews__time"
+          dateTime="03-03-2020"
         >
           March 2020
+        </time>
+      </div>
+    </li>
+    <li
+      className="reviews__item"
+    >
+      <div
+        className="reviews__user user"
+      >
+        <div
+          className="reviews__avatar-wrapper user__avatar-wrapper"
+        >
+          <img
+            alt="Reviews avatar"
+            className="reviews__avatar user__avatar"
+            height={54}
+            src="img/avatar-max.jpg"
+            width={54}
+          />
+        </div>
+        <span
+          className="reviews__user-name"
+        >
+          User9
+        </span>
+      </div>
+      <div
+        className="reviews__info"
+      >
+        <div
+          className="reviews__rating rating"
+        >
+          <div
+            className="reviews__stars rating__stars"
+          >
+            <span
+              style={
+                Object {
+                  "width": "80%",
+                }
+              }
+            />
+            <span
+              className="visually-hidden"
+            >
+              Rating
+            </span>
+          </div>
+        </div>
+        <p
+          className="reviews__text"
+        >
+          description user 9
+        </p>
+        <time
+          className="reviews__time"
+          dateTime="04-04-2020"
+        >
+          April 2020
+        </time>
+      </div>
+    </li>
+    <li
+      className="reviews__item"
+    >
+      <div
+        className="reviews__user user"
+      >
+        <div
+          className="reviews__avatar-wrapper user__avatar-wrapper"
+        >
+          <img
+            alt="Reviews avatar"
+            className="reviews__avatar user__avatar"
+            height={54}
+            src="img/avatar-max.jpg"
+            width={54}
+          />
+        </div>
+        <span
+          className="reviews__user-name"
+        >
+          User8
+        </span>
+      </div>
+      <div
+        className="reviews__info"
+      >
+        <div
+          className="reviews__rating rating"
+        >
+          <div
+            className="reviews__stars rating__stars"
+          >
+            <span
+              style={
+                Object {
+                  "width": "80%",
+                }
+              }
+            />
+            <span
+              className="visually-hidden"
+            >
+              Rating
+            </span>
+          </div>
+        </div>
+        <p
+          className="reviews__text"
+        >
+          description user 8
+        </p>
+        <time
+          className="reviews__time"
+          dateTime="05-05-2020"
+        >
+          May 2020
+        </time>
+      </div>
+    </li>
+    <li
+      className="reviews__item"
+    >
+      <div
+        className="reviews__user user"
+      >
+        <div
+          className="reviews__avatar-wrapper user__avatar-wrapper"
+        >
+          <img
+            alt="Reviews avatar"
+            className="reviews__avatar user__avatar"
+            height={54}
+            src="img/avatar-max.jpg"
+            width={54}
+          />
+        </div>
+        <span
+          className="reviews__user-name"
+        >
+          User7
+        </span>
+      </div>
+      <div
+        className="reviews__info"
+      >
+        <div
+          className="reviews__rating rating"
+        >
+          <div
+            className="reviews__stars rating__stars"
+          >
+            <span
+              style={
+                Object {
+                  "width": "80%",
+                }
+              }
+            />
+            <span
+              className="visually-hidden"
+            >
+              Rating
+            </span>
+          </div>
+        </div>
+        <p
+          className="reviews__text"
+        >
+          description user 7
+        </p>
+        <time
+          className="reviews__time"
+          dateTime="06-06-2020"
+        >
+          June 2020
+        </time>
+      </div>
+    </li>
+    <li
+      className="reviews__item"
+    >
+      <div
+        className="reviews__user user"
+      >
+        <div
+          className="reviews__avatar-wrapper user__avatar-wrapper"
+        >
+          <img
+            alt="Reviews avatar"
+            className="reviews__avatar user__avatar"
+            height={54}
+            src="img/avatar-max.jpg"
+            width={54}
+          />
+        </div>
+        <span
+          className="reviews__user-name"
+        >
+          User6
+        </span>
+      </div>
+      <div
+        className="reviews__info"
+      >
+        <div
+          className="reviews__rating rating"
+        >
+          <div
+            className="reviews__stars rating__stars"
+          >
+            <span
+              style={
+                Object {
+                  "width": "80%",
+                }
+              }
+            />
+            <span
+              className="visually-hidden"
+            >
+              Rating
+            </span>
+          </div>
+        </div>
+        <p
+          className="reviews__text"
+        >
+          description user 6
+        </p>
+        <time
+          className="reviews__time"
+          dateTime="07-07-2020"
+        >
+          July 2020
+        </time>
+      </div>
+    </li>
+    <li
+      className="reviews__item"
+    >
+      <div
+        className="reviews__user user"
+      >
+        <div
+          className="reviews__avatar-wrapper user__avatar-wrapper"
+        >
+          <img
+            alt="Reviews avatar"
+            className="reviews__avatar user__avatar"
+            height={54}
+            src="img/avatar-max.jpg"
+            width={54}
+          />
+        </div>
+        <span
+          className="reviews__user-name"
+        >
+          User5
+        </span>
+      </div>
+      <div
+        className="reviews__info"
+      >
+        <div
+          className="reviews__rating rating"
+        >
+          <div
+            className="reviews__stars rating__stars"
+          >
+            <span
+              style={
+                Object {
+                  "width": "80%",
+                }
+              }
+            />
+            <span
+              className="visually-hidden"
+            >
+              Rating
+            </span>
+          </div>
+        </div>
+        <p
+          className="reviews__text"
+        >
+          description user 5
+        </p>
+        <time
+          className="reviews__time"
+          dateTime="08-08-2020"
+        >
+          August 2020
+        </time>
+      </div>
+    </li>
+    <li
+      className="reviews__item"
+    >
+      <div
+        className="reviews__user user"
+      >
+        <div
+          className="reviews__avatar-wrapper user__avatar-wrapper"
+        >
+          <img
+            alt="Reviews avatar"
+            className="reviews__avatar user__avatar"
+            height={54}
+            src="img/avatar-max.jpg"
+            width={54}
+          />
+        </div>
+        <span
+          className="reviews__user-name"
+        >
+          User4
+        </span>
+      </div>
+      <div
+        className="reviews__info"
+      >
+        <div
+          className="reviews__rating rating"
+        >
+          <div
+            className="reviews__stars rating__stars"
+          >
+            <span
+              style={
+                Object {
+                  "width": "80%",
+                }
+              }
+            />
+            <span
+              className="visually-hidden"
+            >
+              Rating
+            </span>
+          </div>
+        </div>
+        <p
+          className="reviews__text"
+        >
+          description user 4
+        </p>
+        <time
+          className="reviews__time"
+          dateTime="09-09-2020"
+        >
+          September 2020
+        </time>
+      </div>
+    </li>
+    <li
+      className="reviews__item"
+    >
+      <div
+        className="reviews__user user"
+      >
+        <div
+          className="reviews__avatar-wrapper user__avatar-wrapper"
+        >
+          <img
+            alt="Reviews avatar"
+            className="reviews__avatar user__avatar"
+            height={54}
+            src="img/avatar-max.jpg"
+            width={54}
+          />
+        </div>
+        <span
+          className="reviews__user-name"
+        >
+          User3
+        </span>
+      </div>
+      <div
+        className="reviews__info"
+      >
+        <div
+          className="reviews__rating rating"
+        >
+          <div
+            className="reviews__stars rating__stars"
+          >
+            <span
+              style={
+                Object {
+                  "width": "80%",
+                }
+              }
+            />
+            <span
+              className="visually-hidden"
+            >
+              Rating
+            </span>
+          </div>
+        </div>
+        <p
+          className="reviews__text"
+        >
+          description user 3
+        </p>
+        <time
+          className="reviews__time"
+          dateTime="10-10-2020"
+        >
+          October 2020
         </time>
       </div>
     </li>

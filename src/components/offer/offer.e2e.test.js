@@ -1,7 +1,7 @@
-import React from "react";
-import Enzyme, {mount} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import Offer from "./offer.jsx";
+import React from 'react';
+import Enzyme, {mount} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import Offer from './offer.jsx';
 
 Enzyme.configure({
   adapter: new Adapter(),
@@ -20,6 +20,8 @@ const offer = {
   coordinates: [52.39, 4.85],
 };
 
+const offerclassName = `cities`;
+
 it(`Should title offer be pressed`, () => {
   const onOfferTitleClick = jest.fn();
 
@@ -28,6 +30,7 @@ it(`Should title offer be pressed`, () => {
         offer = {offer}
         onOfferTitleClick={onOfferTitleClick}
         onOfferCardHover={() =>{}}
+        offerclassName={offerclassName}
       />
   );
 

@@ -1,15 +1,16 @@
-import React, {PureComponent} from "react";
-import {BrowserRouter, Switch, Route} from "react-router-dom";
-import PropTypes from "prop-types";
+import React, {PureComponent} from 'react';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import Main from "../main/main.jsx";
-import OfferCard from "../offer-card/offer-card.jsx";
+import Main from '../main/main.jsx';
+import OfferCard from '../offer-card/offer-card.jsx';
 
 class App extends PureComponent {
   constructor(props) {
     super(props);
     this._handleOfferTitleClick = this._handleOfferTitleClick.bind(this);
     this._renderOfferScreen = this._renderOfferScreen.bind(this);
+    this._getReviews = this._getReviews.bind(this);
 
     this.state = {
       offerScreen: false,
@@ -30,6 +31,8 @@ class App extends PureComponent {
       return (
         <OfferCard
           offer={offerScreen}
+          reviews={this._getReviews(offerScreen.id)}
+          onOfferTitleClick={this._handleOfferTitleClick}
         />
       );
     } else {
@@ -44,6 +47,12 @@ class App extends PureComponent {
     }
   }
 
+  _getReviews(offersId) {
+    const {reviews} = this.props;
+
+    return reviews.filter((review) => review.offersId === offersId);
+  }
+
   render() {
     const {offers} = this.props;
 
@@ -56,6 +65,8 @@ class App extends PureComponent {
           <Route exact path="/offer-card">
             <OfferCard
               offer={offers[0]}
+              reviews={this._getReviews(offers[0].id)}
+              onOfferTitleClick={this._handleOfferTitleClick}
             />
           </Route>
         </Switch>
@@ -80,6 +91,14 @@ App.propTypes = {
     mark: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired,
     coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
+  })).isRequired,
+  reviews: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    offersId: PropTypes.number.isRequired,
+    userName: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    text: PropTypes.string.isRequired,
+    dateTime: PropTypes.string.isRequired,
   })).isRequired,
   offersCount: PropTypes.number.isRequired
 };

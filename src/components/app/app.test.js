@@ -1,6 +1,6 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import App from "./app.jsx";
+import React from 'react';
+import renderer from 'react-test-renderer';
+import App from './app.jsx';
 
 const offersCount = 312;
 
@@ -61,12 +61,38 @@ const offers = [
   }
 ];
 
+const reviews = [
+  {
+    id: 1,
+    offersId: 1,
+    userName: `User1`,
+    rating: 5,
+    text: `description user 1`,
+    dateTime: `January 10, 2020`,
+  }, {
+    id: 2,
+    offersId: 1,
+    userName: `User2`,
+    rating: 4,
+    text: `description user 2`,
+    dateTime: `March 15, 2020`,
+  }, {
+    id: 3,
+    offersId: 2,
+    userName: `User3`,
+    rating: 5,
+    text: `description user 4`,
+    dateTime: `April 20, 2020`,
+  },
+];
+
 it(`Render App`, () => {
   const tree = renderer.create(
       <App
         cities={cities}
         offersCount={offersCount}
         offers={offers}
+        reviews={reviews}
       />)
     .toJSON();
 

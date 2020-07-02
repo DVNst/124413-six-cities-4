@@ -305,6 +305,7 @@ Array [
                       <b
                         className="place-card__price-value"
                       >
+                        €
                         100
                       </b>
                       <span
@@ -404,6 +405,7 @@ Array [
                       <b
                         className="place-card__price-value"
                       >
+                        €
                         50
                       </b>
                       <span
@@ -503,6 +505,7 @@ Array [
                       <b
                         className="place-card__price-value"
                       >
+                        €
                         35
                       </b>
                       <span
@@ -608,6 +611,7 @@ Array [
                       <b
                         className="place-card__price-value"
                       >
+                        €
                         67
                       </b>
                       <span

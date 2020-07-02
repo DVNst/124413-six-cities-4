@@ -1,6 +1,6 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import OfferCard from "./offer-card.jsx";
+import React from 'react';
+import renderer from 'react-test-renderer';
+import OfferCard from './offer-card.jsx';
 
 const offerWithMark = {
   id: 1,
@@ -28,10 +28,30 @@ const offerWithoutMark = {
   coordinates: [52.36, 4.84],
 };
 
+const reviews = [
+  {
+    id: 1,
+    offersId: 1,
+    userName: `User1`,
+    rating: 5,
+    text: `description user 1`,
+    dateTime: `April 10, 2020`,
+  }, {
+    id: 2,
+    offersId: 1,
+    userName: `User2`,
+    rating: 4,
+    text: `description user 2`,
+    dateTime: `March 20, 2020`,
+  },
+];
+
 it(`Render OfferCard with mark`, () => {
   const tree = renderer.create(
       <OfferCard
         offer={offerWithMark}
+        reviews={reviews}
+        onOfferTitleClick={() => {}}
       />)
     .toJSON();
 
@@ -42,6 +62,8 @@ it(`Render OfferCard without mark`, () => {
   const tree = renderer.create(
       <OfferCard
         offer={offerWithoutMark}
+        reviews={reviews}
+        onOfferTitleClick={() => {}}
       />)
     .toJSON();
 

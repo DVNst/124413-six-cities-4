@@ -1,0 +1,36 @@
+export default [
+  {
+    id: 2,
+    city: `Amsterdam`,
+    placeName: `Wood and stone place`,
+    type: `Private room`,
+    price: 80,
+    period: `night`,
+    rating: 4,
+    mark: ``,
+    img: `img/room.jpg`,
+    coordinates: [52.369553943508, 4.85309666406198],
+  }, {
+    id: 3,
+    city: `Amsterdam`,
+    placeName: `Canal View Prinsengracht`,
+    type: `Apartment`,
+    price: 132,
+    period: `night`,
+    rating: 4,
+    mark: ``,
+    img: `img/apartment-02.jpg`,
+    coordinates: [52.3909553943508, 4.929309666406198],
+  }, {
+    id: 4,
+    city: `Amsterdam`,
+    placeName: `Nice, cozy, warm big bed apartment`,
+    type: `Apartment`,
+    price: 180,
+    period: `night`,
+    rating: 5,
+    mark: ``,
+    img: `img/apartment-03.jpg`,
+    coordinates: [52.3809553943508, 4.939309666406198],
+  }
+];

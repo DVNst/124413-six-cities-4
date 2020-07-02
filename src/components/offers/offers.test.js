@@ -1,6 +1,6 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import Offers from "./offers.jsx";
+import React from 'react';
+import renderer from 'react-test-renderer';
+import Offers from './offers.jsx';
 
 const offers = [
   {
@@ -50,11 +50,15 @@ const offers = [
   }
 ];
 
+const offerclassName = `cities`;
+
 it(`Render Offers`, () => {
   const tree = renderer.create(
       <Offers
         offers={offers}
         onOfferTitleClick={() => {}}
+        onOfferCardHover={() => {}}
+        offerclassName={offerclassName}
       />)
     .toJSON();
 

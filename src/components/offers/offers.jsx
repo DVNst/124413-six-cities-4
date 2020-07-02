@@ -1,6 +1,6 @@
-import React, {Fragment} from "react";
-import PropTypes from "prop-types";
-import Offer from "../offer/offer.jsx";
+import React, {Fragment} from 'react';
+import PropTypes from 'prop-types';
+import Offer from '../offer/offer.jsx';
 
 const Offers = ({offers, onOfferTitleClick, onOfferCardHover, offerclassName}) => {
   return (

@@ -1,9 +1,9 @@
-import React, {PureComponent} from "react";
-import {BrowserRouter, Switch, Route} from "react-router-dom";
-import PropTypes from "prop-types";
+import React, {PureComponent} from 'react';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import Main from "../main/main.jsx";
-import OfferCard from "../offer-card/offer-card.jsx";
+import Main from '../main/main.jsx';
+import OfferCard from '../offer-card/offer-card.jsx';
 
 class App extends PureComponent {
   constructor(props) {
@@ -49,9 +49,8 @@ class App extends PureComponent {
 
   _getReviews(offersId) {
     const {reviews} = this.props;
-    const offerReviews = reviews.filter((review) => review.offersId === offersId);
 
-    return offerReviews;
+    return reviews.filter((review) => review.offersId === offersId);
   }
 
   render() {

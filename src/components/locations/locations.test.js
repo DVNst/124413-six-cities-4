@@ -1,6 +1,6 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import Locations from "./locations.jsx";
+import React from 'react';
+import renderer from 'react-test-renderer';
+import Locations from './locations.jsx';
 
 const cities = [
   {name: `Paris`, coordinates: [1, 1], active: false},

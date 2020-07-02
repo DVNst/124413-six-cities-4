@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Offer = ({review}) => {
   const {userName, rating, text, dateTime} = review;
@@ -15,14 +15,14 @@ const Offer = ({review}) => {
     const mm = addZeros(date.getMonth() + 1);
     const yyyy = date.getFullYear();
 
-    return dd + `-` + mm + `-` + yyyy;
+    return `${dd}-${mm}-${yyyy}`;
   };
 
   const _getDate = (date) => {
     const mm = date.toLocaleString(`en-US`, {month: `long`});
     const yyyy = date.getFullYear();
 
-    return mm + ` ` + yyyy;
+    return `${mm} ${yyyy}`;
   };
 
   return (

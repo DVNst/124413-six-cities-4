@@ -1,6 +1,6 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import OfferCard from "./offer-card.jsx";
+import React from 'react';
+import renderer from 'react-test-renderer';
+import OfferCard from './offer-card.jsx';
 
 const offerWithMark = {
   id: 1,

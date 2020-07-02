@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import Header from "../header/header.jsx";
-import OfferReviews from "../offer-reviews/offer-reviews.jsx";
-import Map from "../map/map.jsx";
-import Offers from "../offers/offers.jsx";
+import Header from '../header/header.jsx';
+import OfferReviews from '../offer-reviews/offer-reviews.jsx';
+import Map from '../map/map.jsx';
+import Offers from '../offers/offers.jsx';
 
-import offersNearby from "../../mocks/offers-nearby.js";
+import offersNearby from '../../mocks/offers-nearby.js';
 
 const OfferCard = ({offer, reviews, onOfferTitleClick}) => {
   const {placeName, type, price, period, rating, mark, img, coordinates} = offer;

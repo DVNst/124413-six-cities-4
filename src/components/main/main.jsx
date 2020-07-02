@@ -1,10 +1,10 @@
-import React, {PureComponent} from "react";
-import PropTypes from "prop-types";
+import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
 
-import Header from "../header/header.jsx";
-import Locations from "../locations/locations.jsx";
-import Offers from "../offers/offers.jsx";
-import Map from "../map/map.jsx";
+import Header from '../header/header.jsx';
+import Locations from '../locations/locations.jsx';
+import Offers from '../offers/offers.jsx';
+import Map from '../map/map.jsx';
 
 class Main extends PureComponent {
   constructor(props) {

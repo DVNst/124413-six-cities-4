@@ -1,7 +1,7 @@
-import React, {Fragment} from "react";
-import PropTypes from "prop-types";
+import React, {Fragment} from 'react';
+import PropTypes from 'prop-types';
 
-import OfferReview from "../offer-review/offer-review.jsx";
+import OfferReview from '../offer-review/offer-review.jsx';
 
 const OfferReviews = ({reviews}) => {
   const reviewsLasTen = reviews.sort((a, b) => {

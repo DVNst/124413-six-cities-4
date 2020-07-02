@@ -1,6 +1,6 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import OfferReview from "./offer-review.jsx";
+import React from 'react';
+import renderer from 'react-test-renderer';
+import OfferReview from './offer-review.jsx';
 
 const review = {
   id: 1,

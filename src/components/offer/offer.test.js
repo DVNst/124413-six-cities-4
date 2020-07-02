@@ -1,6 +1,6 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import Offer from "./offer.jsx";
+import React from 'react';
+import renderer from 'react-test-renderer';
+import Offer from './offer.jsx';
 
 const offerWithMark = {
   id: 1,

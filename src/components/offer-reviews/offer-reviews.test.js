@@ -1,6 +1,6 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import OfferReviews from "./offer-reviews.jsx";
+import React from 'react';
+import renderer from 'react-test-renderer';
+import OfferReviews from './offer-reviews.jsx';
 
 const reviews = [
   {id: 1, offersId: 1, userName: `User1`, rating: 5, text: `description user 1`, dateTime: `December 31, 2020`},

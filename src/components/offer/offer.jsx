@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Offer = ({offer, onOfferTitleClick, onOfferCardHover, offerclassName}) => {
   const {placeName, type, price, period, rating, mark, img} = offer;

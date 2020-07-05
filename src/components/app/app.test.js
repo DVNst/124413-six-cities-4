@@ -1,22 +1,25 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import App from './app.jsx';
+import {Provider} from 'react-redux';
+import configureStore from 'redux-mock-store';
 
-const offersCount = 312;
+import {App} from './app.jsx';
+
+const mockStore = configureStore([]);
 
 const cities = [
-  {name: `Paris`, coordinates: [1, 1], active: false},
-  {name: `Cologne`, coordinates: [2, 2], active: false},
-  {name: `Brussels`, coordinates: [3, 3], active: false},
-  {name: `Amsterdam`, coordinates: [4, 4], active: true},
-  {name: `Hamburg`, coordinates: [5, 5], active: false},
-  {name: `Dusseldorf`, coordinates: [6, 6], active: false},
+  {name: `Paris`, coordinates: [1, 1]},
+  {name: `Cologne`, coordinates: [2, 2]},
+  {name: `Brussels`, coordinates: [3, 3]},
+  {name: `Amsterdam`, coordinates: [4, 4]},
+  {name: `Hamburg`, coordinates: [5, 5]},
+  {name: `Dusseldorf`, coordinates: [6, 6]},
 ];
 
 const offers = [
   {
     id: 101,
-    city: `Amsterdam`,
+    city: `Paris`,
     placeName: `Luxury loft 15 min from Amsterdam Central Station`,
     type: `Apartment`,
     price: 100,
@@ -27,7 +30,7 @@ const offers = [
     coordinates: [52, 4],
   }, {
     id: 202,
-    city: `Amsterdam`,
+    city: `Paris`,
     placeName: `Budget Twin Studio with Street Art in Amsterdam`,
     type: `Private room`,
     price: 50,
@@ -38,7 +41,7 @@ const offers = [
     coordinates: [52.1, 4.1],
   }, {
     id: 303,
-    city: `Amsterdam`,
+    city: `Paris`,
     placeName: `Generator - Bed in 4 bed Dorm`,
     type: `Apartment`,
     price: 35,
@@ -49,7 +52,7 @@ const offers = [
     coordinates: [52.2, 4.2],
   }, {
     id: 404,
-    city: `Amsterdam`,
+    city: `Paris`,
     placeName: `Houseboot Amsterdam`,
     type: `Apartment`,
     price: 67,
@@ -86,14 +89,22 @@ const reviews = [
   },
 ];
 
+const cityActive = {name: `Paris`, coordinates: [1, 1]};
+
+
 it(`Render App`, () => {
+  const store = mockStore({});
+
   const tree = renderer.create(
-      <App
-        cities={cities}
-        offersCount={offersCount}
-        offers={offers}
-        reviews={reviews}
-      />)
+      <Provider store={store}>
+        <App
+          cities={cities}
+          offers={offers}
+          reviews={reviews}
+          cityActive={cityActive}
+          onLocationClick={() => {}}
+        />
+      </Provider>)
     .toJSON();
 
   expect(tree).toMatchSnapshot();

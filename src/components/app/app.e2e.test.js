@@ -1,21 +1,24 @@
 import React from 'react';
+import {Provider} from 'react-redux';
+import configureStore from 'redux-mock-store';
 import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import App from './app.jsx';
+
+import {App} from './app.jsx';
+
+const mockStore = configureStore([]);
 
 Enzyme.configure({
   adapter: new Adapter(),
 });
 
-const offersCount = 312;
-
 const cities = [
-  {name: `Paris`, coordinates: [1, 1], active: false},
-  {name: `Cologne`, coordinates: [2, 2], active: false},
-  {name: `Brussels`, coordinates: [3, 3], active: false},
-  {name: `Amsterdam`, coordinates: [4, 4], active: true},
-  {name: `Hamburg`, coordinates: [5, 5], active: false},
-  {name: `Dusseldorf`, coordinates: [6, 6], active: false},
+  {name: `Paris`, coordinates: [1, 1]},
+  {name: `Cologne`, coordinates: [2, 2]},
+  {name: `Brussels`, coordinates: [3, 3]},
+  {name: `Amsterdam`, coordinates: [4, 4]},
+  {name: `Hamburg`, coordinates: [5, 5]},
+  {name: `Dusseldorf`, coordinates: [6, 6]},
 ];
 
 const offers = [
@@ -91,24 +94,29 @@ const reviews = [
   },
 ];
 
+const cityActive = {name: `Paris`, coordinates: [1, 1]};
+
 it(`Pressed on title offer returns the correct callback (offer screen)`, () => {
+  const store = mockStore({});
+
   const appScreen = mount(
-      <App
-        cities={cities}
-        offersCount={offersCount}
-        offers = {offers}
-        reviews={reviews}
-      />
+      <Provider store={store}>
+        <App
+          cities={cities}
+          offers={offers}
+          reviews={reviews}
+          cityActive={cityActive}
+          onLocationClick={() => {}}
+        />
+      </Provider>
   );
 
-  expect(appScreen.state(`offerScreen`)).toBe(false);
   expect(appScreen.find(`.page__main--index`).length).toBe(1);
   expect(appScreen.find(`.page__main--property`).length).toBe(0);
 
   const firstOfferTitle = appScreen.find(`.place-card__name a`).at(1);
   firstOfferTitle.simulate(`click`);
 
-  expect(appScreen.state(`offerScreen`)).toBe(offers[1]);
   expect(appScreen.find(`.page__main--index`).length).toBe(0);
   expect(appScreen.find(`.page__main--property`).length).toBe(1);
 });

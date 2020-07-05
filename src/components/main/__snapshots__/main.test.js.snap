@@ -118,8 +118,9 @@ Array [
               className="locations__item"
             >
               <a
-                className="locations__item-link tabs__item"
+                className="locations__item-link tabs__item tabs__item--active"
                 href="#"
+                onClick={[Function]}
               >
                 <span>
                   Paris
@@ -132,6 +133,7 @@ Array [
               <a
                 className="locations__item-link tabs__item"
                 href="#"
+                onClick={[Function]}
               >
                 <span>
                   Cologne
@@ -144,6 +146,7 @@ Array [
               <a
                 className="locations__item-link tabs__item"
                 href="#"
+                onClick={[Function]}
               >
                 <span>
                   Brussels
@@ -154,8 +157,9 @@ Array [
               className="locations__item"
             >
               <a
-                className="locations__item-link tabs__item tabs__item--active"
+                className="locations__item-link tabs__item"
                 href="#"
+                onClick={[Function]}
               >
                 <span>
                   Amsterdam
@@ -168,6 +172,7 @@ Array [
               <a
                 className="locations__item-link tabs__item"
                 href="#"
+                onClick={[Function]}
               >
                 <span>
                   Hamburg
@@ -180,6 +185,7 @@ Array [
               <a
                 className="locations__item-link tabs__item"
                 href="#"
+                onClick={[Function]}
               >
                 <span>
                   Dusseldorf
@@ -206,8 +212,9 @@ Array [
             <b
               className="places__found"
             >
-              312
-               places to stay in Amsterdam
+              4
+               places to stay in 
+              Paris
             </b>
             <form
               action="#"

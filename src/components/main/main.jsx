@@ -23,8 +23,9 @@ class Main extends PureComponent {
   }
 
   render() {
-    const {cities, offersCount, offers, onOfferTitleClick} = this.props;
-    const cityActive = cities.find((city) => city.active);
+    const {cities, offers, onOfferTitleClick, cityActive, onLocationClick} = this.props;
+    const offersCount = offers.length;
+    const empty = (offersCount <= 0);
 
     return (
       <React.Fragment>
@@ -33,55 +34,78 @@ class Main extends PureComponent {
         </div>
         <div className="page page--gray page--main">
           <Header />
-          <main className="page__main page__main--index">
+          <main className=
+            {`page__main page__main--index` +
+            ((empty) ? ` page__main--index-empty` : ``)}
+          >
             <h1 className="visually-hidden">Cities</h1>
-            <Locations cities={cities} />
+            <Locations
+              cities={cities}
+              cityActive={cityActive}
+              onLocationClick={onLocationClick}
+            />
             <div className="cities">
-              <div className="cities__places-container container">
-                <section className="cities__places places">
-                  <h2 className="visually-hidden">Places</h2>
-                  <b className="places__found">{offersCount} places to stay in Amsterdam</b>
-                  <form className="places__sorting" action="#" method="get">
-                    <span className="places__sorting-caption">Sort by</span>
-                    <span className="places__sorting-type" tabIndex={0}>
-                      Popular
-                      <svg className="places__sorting-arrow" width={7} height={4}>
-                        <use xlinkHref="#icon-arrow-select" />
-                      </svg>
-                    </span>
-                    {/* <ul className="places__options places__options--custom places__options--opened"> */}
-                    <ul className="places__options places__options--custom">
-                      <li className="places__option places__option--active" tabIndex={0}>Popular</li>
-                      <li className="places__option" tabIndex={0}>Price: low to high</li>
-                      <li className="places__option" tabIndex={0}>Price: high to low</li>
-                      <li className="places__option" tabIndex={0}>Top rated first</li>
-                    </ul>
-                    {/*
-                <select class="places__sorting-type" id="places-sorting">
-                  <option class="places__option" value="popular" selected="">Popular</option>
-                  <option class="places__option" value="to-high">Price: low to high</option>
-                  <option class="places__option" value="to-low">Price: high to low</option>
-                  <option class="places__option" value="top-rated">Top rated first</option>
-                </select>
-                */}
-                  </form>
-                  <div className="cities__places-list places__list tabs__content">
-                    <Offers
-                      offers={offers}
-                      onOfferTitleClick={onOfferTitleClick}
-                      onOfferCardHover={this._handleOfferCardHover}
-                      offerclassName={`cities`}
-                    />
-                  </div>
-                </section>
-                <div className="cities__right-section">
-                  <section className="cities__map map">
-                    <Map
-                      coordinates={cityActive.coordinates}
-                      offers={offers}
-                      offerActive={this.state.offerHover}
-                    />
+              <div className=
+                {`cities__places-container container` +
+                ((empty) ? ` cities__places-container--empty` : ``)}
+              >
+                {(!empty) ?
+                  <section className="cities__places places">
+                    <h2 className="visually-hidden">Places</h2>
+                    <b className="places__found">{offersCount} places to stay in {cityActive.name}</b>
+                    <form className="places__sorting" action="#" method="get">
+                      <span className="places__sorting-caption">Sort by</span>
+                      <span className="places__sorting-type" tabIndex={0}>
+                        Popular
+                        <svg className="places__sorting-arrow" width={7} height={4}>
+                          <use xlinkHref="#icon-arrow-select" />
+                        </svg>
+                      </span>
+                      {/* <ul className="places__options places__options--custom places__options--opened"> */}
+                      <ul className="places__options places__options--custom">
+                        <li className="places__option places__option--active" tabIndex={0}>Popular</li>
+                        <li className="places__option" tabIndex={0}>Price: low to high</li>
+                        <li className="places__option" tabIndex={0}>Price: high to low</li>
+                        <li className="places__option" tabIndex={0}>Top rated first</li>
+                      </ul>
+                      {/*
+                      <select class="places__sorting-type" id="places-sorting">
+                        <option class="places__option" value="popular" selected="">Popular</option>
+                        <option class="places__option" value="to-high">Price: low to high</option>
+                        <option class="places__option" value="to-low">Price: high to low</option>
+                        <option class="places__option" value="top-rated">Top rated first</option>
+                      </select>
+                      */}
+                    </form>
+                    <div className="cities__places-list places__list tabs__content">
+                      <Offers
+                        offers={offers}
+                        onOfferTitleClick={onOfferTitleClick}
+                        onOfferCardHover={this._handleOfferCardHover}
+                        offerclassName={`cities`}
+                      />
+                    </div>
                   </section>
+                  :
+                  <section className="cities__no-places">
+                    <div className="cities__status-wrapper tabs__content">
+                      <b className="cities__status">No places to stay available</b>
+                      <p className="cities__status-description">We could not find any property availbale at the moment in Dusseldorf</p>
+                    </div>
+                  </section>
+                }
+                <div className="cities__right-section">
+                  {(!empty) ?
+                    <section className="cities__map map">
+                      <Map
+                        coordinates={cityActive.coordinates}
+                        offers={offers}
+                        offerActive={this.state.offerHover}
+                      />
+                    </section>
+                    :
+                    null
+                  }
                 </div>
               </div>
             </div>
@@ -96,7 +120,6 @@ Main.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     coordinates: PropTypes.arrayOf(PropTypes.number),
-    active: PropTypes.bool.isRequired,
   })).isRequired,
   offers: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
@@ -110,8 +133,12 @@ Main.propTypes = {
     img: PropTypes.string.isRequired,
     coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
   })).isRequired,
-  offersCount: PropTypes.number.isRequired,
-  onOfferTitleClick: PropTypes.func.isRequired
+  onOfferTitleClick: PropTypes.func.isRequired,
+  cityActive: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    coordinates: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  }),
+  onLocationClick: PropTypes.func.isRequired,
 };
 
 export default Main;

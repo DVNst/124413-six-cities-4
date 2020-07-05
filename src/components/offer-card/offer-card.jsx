@@ -145,7 +145,7 @@ const OfferCard = ({offer, reviews, onOfferTitleClick}) => {
             <section className="property__map map">
               <Map
                 coordinates={coordinates}
-                offers={[...offersNearby, offer]}
+                offers={offersNearby.concat(offer)}
                 offerActive={offer}
               />
             </section>

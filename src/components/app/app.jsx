@@ -9,6 +9,10 @@ import OfferCard from '../offer-card/offer-card.jsx';
 
 import {offers as offersForCard} from '../../mocks/offers.js';
 
+const _getOffers = (offers, cityActive) => {
+  return (cityActive) ? offers.filter((offer) => (offer.city === cityActive.name)) : {};
+};
+
 class App extends PureComponent {
   constructor(props) {
     super(props);
@@ -68,14 +72,12 @@ class App extends PureComponent {
             {this._renderOfferScreen()}
           </Route>
           <Route exact path="/offer-card">
-            {(offers) ?
+            {(offers) &&
               <OfferCard
                 offer={offersForCard[0]}
                 reviews={this._getReviews(offersForCard[0].id)}
                 onOfferTitleClick={this._handleOfferTitleClick}
               />
-              :
-              null
             }
           </Route>
         </Switch>
@@ -117,14 +119,14 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  offers: state.offers,
+  offers: _getOffers(state.offers, state.cityActive),
   cityActive: state.cityActive,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   onLocationClick(city) {
     dispatch(ActionCreator.selectCity(city));
-    dispatch(ActionCreator.getOffers(city));
+    dispatch(ActionCreator.getOffers());
   },
 });
 

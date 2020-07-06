@@ -95,7 +95,7 @@ class Main extends PureComponent {
                   </section>
                 }
                 <div className="cities__right-section">
-                  {(!empty) ?
+                  {(!empty) &&
                     <section className="cities__map map">
                       <Map
                         coordinates={cityActive.coordinates}
@@ -103,8 +103,6 @@ class Main extends PureComponent {
                         offerActive={this.state.offerHover}
                       />
                     </section>
-                    :
-                    null
                   }
                 </div>
               </div>

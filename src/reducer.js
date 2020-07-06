@@ -1,19 +1,13 @@
+import {extend} from './utils.js';
+
 import {cities} from './mocks/cities.js';
 import {offers} from './mocks/offers.js';
 
-const extend = (a, b) => {
-  return Object.assign({}, a, b);
-};
-
 const cityActive = cities[0];
-
-const _getOffers = (city) => {
-  return (city) ? offers.filter((offer) => (offer.city === city.name)) : {};
-};
 
 const initialState = {
   cityActive,
-  offers: _getOffers(cityActive),
+  offers,
 };
 
 const ActionType = {
@@ -39,7 +33,7 @@ const reducer = (state = initialState, action) => {
       return extend(state, {cityActive: action.payload});
 
     case ActionType.GET_OFFERS:
-      return extend(state, {offers: _getOffers(action.payload)});
+      return extend(state, {offers});
   }
 
   return state;

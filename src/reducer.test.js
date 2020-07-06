@@ -9,54 +9,6 @@ const cities = [
   {name: `Dusseldorf`, coordinates: [51.22172, 6.77616]},
 ];
 
-const offersAmsterdam = [
-  {
-    id: 41,
-    city: `Amsterdam`,
-    placeName: `Beautiful & luxurious apartment at great location`,
-    type: `Apartment`,
-    price: 120,
-    period: `night`,
-    rating: 4.8,
-    mark: `Premium`,
-    img: `img/apartment-01.jpg`,
-    coordinates: [52.3909553943508, 4.85309666406198],
-  }, {
-    id: 42,
-    city: `Amsterdam`,
-    placeName: `Wood and stone place`,
-    type: `Private room`,
-    price: 80,
-    period: `night`,
-    rating: 4.2,
-    mark: ``,
-    img: `img/room.jpg`,
-    coordinates: [52.369553943508, 4.85309666406198],
-  }, {
-    id: 43,
-    city: `Amsterdam`,
-    placeName: `Canal View Prinsengracht`,
-    type: `Apartment`,
-    price: 132,
-    period: `night`,
-    rating: 4.7,
-    mark: ``,
-    img: `img/apartment-02.jpg`,
-    coordinates: [52.3909553943508, 4.929309666406198],
-  }, {
-    id: 44,
-    city: `Amsterdam`,
-    placeName: `Nice, cozy, warm big bed apartment`,
-    type: `Apartment`,
-    price: 180,
-    period: `night`,
-    rating: 5,
-    mark: `Premium`,
-    img: `img/apartment-03.jpg`,
-    coordinates: [52.3809553943508, 4.939309666406198],
-  },
-];
-
 const initialState = {
   cities: {name: `Paris`, coordinates: [48.85341, 2.3488]},
   offers: [
@@ -115,9 +67,54 @@ const initialState = {
       mark: `Premium`,
       img: `img/apartment-03.jpg`,
       coordinates: [48.842110, 2.353682],
-    }],
+    },
+    {
+      id: 41,
+      city: `Amsterdam`,
+      placeName: `Beautiful & luxurious apartment at great location`,
+      type: `Apartment`,
+      price: 120,
+      period: `night`,
+      rating: 4.8,
+      mark: `Premium`,
+      img: `img/apartment-01.jpg`,
+      coordinates: [52.3909553943508, 4.85309666406198],
+    }, {
+      id: 42,
+      city: `Amsterdam`,
+      placeName: `Wood and stone place`,
+      type: `Private room`,
+      price: 80,
+      period: `night`,
+      rating: 4.2,
+      mark: ``,
+      img: `img/room.jpg`,
+      coordinates: [52.369553943508, 4.85309666406198],
+    }, {
+      id: 43,
+      city: `Amsterdam`,
+      placeName: `Canal View Prinsengracht`,
+      type: `Apartment`,
+      price: 132,
+      period: `night`,
+      rating: 4.7,
+      mark: ``,
+      img: `img/apartment-02.jpg`,
+      coordinates: [52.3909553943508, 4.929309666406198],
+    }, {
+      id: 44,
+      city: `Amsterdam`,
+      placeName: `Nice, cozy, warm big bed apartment`,
+      type: `Apartment`,
+      price: 180,
+      period: `night`,
+      rating: 5,
+      mark: `Premium`,
+      img: `img/apartment-03.jpg`,
+      coordinates: [52.3809553943508, 4.939309666406198],
+    },
+  ],
 };
-
 
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer(void 0, {}))
@@ -157,21 +154,10 @@ it(`Reducer should change offer to match the value of city`, () => {
     offers: initialState.offers,
   }, {
     type: ActionType.GET_OFFERS,
-    payload: cities[0],
+    payload: null,
   })).toEqual({
     cityActive: initialState.cities,
     offers: initialState.offers,
-  });
-
-  expect(reducer({
-    cityActive: initialState.cities,
-    offers: initialState.offers,
-  }, {
-    type: ActionType.GET_OFFERS,
-    payload: cities[3],
-  })).toEqual({
-    cityActive: initialState.cities,
-    offers: offersAmsterdam,
   });
 });
 

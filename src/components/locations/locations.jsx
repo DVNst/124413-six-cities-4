@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Locations = ({cities}) => {
+const Locations = ({cities, cityActive, onLocationClick}) => {
+  cities.splice(6);
+
   return (
     <div className="tabs">
       <section className="locations container">
@@ -14,9 +16,10 @@ const Locations = ({cities}) => {
               <a
                 className={
                   `locations__item-link tabs__item` +
-                  (city.active ? ` tabs__item--active` : ``)
+                  (city.name === cityActive.name ? ` tabs__item--active` : ``)
                 }
                 href="#"
+                onClick={() => onLocationClick(city)}
               >
                 <span>{city.name}</span>
               </a>
@@ -32,8 +35,12 @@ Locations.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     coordinates: PropTypes.arrayOf[PropTypes.number],
-    active: PropTypes.bool.isRequired,
   })).isRequired,
+  cityActive: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    coordinates: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  }),
+  onLocationClick: PropTypes.func.isRequired,
 };
 
 export default Locations;

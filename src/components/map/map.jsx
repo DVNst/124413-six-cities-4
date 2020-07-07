@@ -11,13 +11,14 @@ class Map extends PureComponent {
   }
 
   _addMarkers(offers, offerActive) {
+    let markers = [];
     offers.map((offer) => {
       const iconMarker = (offer === offerActive) ? this.iconActive : this.icon;
-
-      leaflet
-        .marker(offer.coordinates, {icon: iconMarker})
-        .addTo(this.map);
+      markers.push(leaflet.marker(offer.coordinates, {icon: iconMarker}));
     });
+
+    this.layerMarkers = leaflet.layerGroup(markers);
+    this.map.addLayer(this.layerMarkers);
   }
 
   componentDidMount() {
@@ -33,14 +34,14 @@ class Map extends PureComponent {
       iconSize: [27, 39]
     });
 
-    const zoom = 12;
+    this.zoom = 12;
     this.map = leaflet.map(this._mapRef.current, {
       center: city,
-      zoom,
+      zoom: this.zoom,
       zoomControl: false,
       marker: true
     });
-    this.map.setView(city, zoom);
+    this.map.setView(city, this.zoom);
 
     leaflet
       .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
@@ -59,6 +60,14 @@ class Map extends PureComponent {
         style={{height: `100%`}}
       />
     );
+  }
+
+  componentDidUpdate() {
+    const {offers, offerActive, coordinates: city} = this.props;
+
+    this.layerMarkers.remove();
+    this._addMarkers(offers, offerActive);
+    this.map.setView(city, this.zoom);
   }
 
   componentWillUnmount() {

@@ -1,6 +1,6 @@
 export default [
   {
-    id: 2,
+    id: 42,
     city: `Amsterdam`,
     placeName: `Wood and stone place`,
     type: `Private room`,
@@ -11,7 +11,7 @@ export default [
     img: `img/room.jpg`,
     coordinates: [52.369553943508, 4.85309666406198],
   }, {
-    id: 3,
+    id: 43,
     city: `Amsterdam`,
     placeName: `Canal View Prinsengracht`,
     type: `Apartment`,
@@ -22,7 +22,7 @@ export default [
     img: `img/apartment-02.jpg`,
     coordinates: [52.3909553943508, 4.929309666406198],
   }, {
-    id: 4,
+    id: 44,
     city: `Amsterdam`,
     placeName: `Nice, cozy, warm big bed apartment`,
     type: `Apartment`,

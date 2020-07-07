@@ -6,10 +6,17 @@ leaflet.map = () => {
   return {
     setView: () => {},
     remove: () => {},
+    addLayer: () => {},
   };
 };
 
 leaflet.marker = () => {
+  return {
+    addTo: () => {},
+  };
+};
+
+leaflet.tileLayer = () => {
   return {
     addTo: () => {},
   };

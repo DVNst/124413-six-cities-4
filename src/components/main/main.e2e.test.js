@@ -7,16 +7,16 @@ Enzyme.configure({
   adapter: new Adapter(),
 });
 
-const offersCount = 312;
-
 const cities = [
-  {name: `Paris`, coordinates: [1, 1], active: false},
-  {name: `Cologne`, coordinates: [2, 2], active: false},
-  {name: `Brussels`, coordinates: [3, 3], active: false},
-  {name: `Amsterdam`, coordinates: [4, 4], active: true},
-  {name: `Hamburg`, coordinates: [5, 5], active: false},
-  {name: `Dusseldorf`, coordinates: [6, 6], active: false},
+  {name: `Paris`, coordinates: [1, 1]},
+  {name: `Cologne`, coordinates: [2, 2]},
+  {name: `Brussels`, coordinates: [3, 3]},
+  {name: `Amsterdam`, coordinates: [4, 4]},
+  {name: `Hamburg`, coordinates: [5, 5]},
+  {name: `Dusseldorf`, coordinates: [6, 6]},
 ];
+
+const cityActive = {name: `Paris`, coordinates: [1, 1]};
 
 const offers = [
   {
@@ -73,8 +73,9 @@ it(`Should title offer be pressed`, () => {
       <Main
         cities={cities}
         offers = {offers}
-        offersCount={offersCount}
         onOfferTitleClick={onOfferTitleClick}
+        cityActive={cityActive}
+        onLocationClick={() => {}}
       />
   );
 

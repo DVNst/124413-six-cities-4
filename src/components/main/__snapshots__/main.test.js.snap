@@ -244,32 +244,31 @@ Array [
               </span>
               <ul
                 className="places__options places__options--custom"
-                onClick={[Function]}
               >
                 <li
                   className="places__option places__option--active"
-                  data-value="Popular"
+                  onClick={[Function]}
                   tabIndex={0}
                 >
                   Popular
                 </li>
                 <li
                   className="places__option"
-                  data-value="Price: low to high"
+                  onClick={[Function]}
                   tabIndex={0}
                 >
                   Price: low to high
                 </li>
                 <li
                   className="places__option"
-                  data-value="Price: high to low"
+                  onClick={[Function]}
                   tabIndex={0}
                 >
                   Price: high to low
                 </li>
                 <li
                   className="places__option"
-                  data-value="Top rated first"
+                  onClick={[Function]}
                   tabIndex={0}
                 >
                   Top rated first

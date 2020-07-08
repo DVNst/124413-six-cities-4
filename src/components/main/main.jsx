@@ -1,11 +1,17 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
+import {sortingOptions} from '../../const.js';
+
 import Header from '../header/header.jsx';
 import Locations from '../locations/locations.jsx';
-import SortingOptions from '../sorting-options/sorting-options.jsx';
 import Offers from '../offers/offers.jsx';
 import Map from '../map/map.jsx';
+
+import SortingOptions from '../sorting-options/sorting-options.jsx';
+import withOpen from '../../hocs/with-open/with-open.js';
+
+const SortingOptionsWrapper = withOpen(SortingOptions);
 
 class Main extends PureComponent {
   constructor(props) {
@@ -15,6 +21,7 @@ class Main extends PureComponent {
 
     this.state = {
       offerHover: null,
+      optionSortingActive: Object.values(sortingOptions)[0],
       offersSorting: this.props.offers,
     };
   }
@@ -25,13 +32,15 @@ class Main extends PureComponent {
     });
   }
 
-  _handleSortOptionClick(offers) {
+  _handleSortOptionClick(optionSortingSelect, offers) {
     this.setState({
+      optionSortingActive: optionSortingSelect,
       offersSorting: offers,
     });
   }
 
   render() {
+    const {optionSortingActive, offersSorting} = this.state;
     const {cities, offers, onOfferTitleClick, cityActive, onLocationClick} = this.props;
     const offersCount = offers.length;
     const empty = (offersCount <= 0);
@@ -62,13 +71,14 @@ class Main extends PureComponent {
                   <section className="cities__places places">
                     <h2 className="visually-hidden">Places</h2>
                     <b className="places__found">{offersCount} places to stay in {cityActive.name}</b>
-                    <SortingOptions
+                    <SortingOptionsWrapper
                       offers={offers}
+                      optionSortingActive={optionSortingActive}
                       onSortOptionClick={this._handleSortOptionClick}
                     />
                     <div className="cities__places-list places__list tabs__content">
                       <Offers
-                        offers={this.state.offersSorting}
+                        offers={offersSorting}
                         onOfferTitleClick={onOfferTitleClick}
                         onOfferCardHover={this._handleOfferCardHover}
                         offerclassName={`cities`}

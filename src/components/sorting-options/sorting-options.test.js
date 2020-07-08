@@ -51,11 +51,17 @@ const offers = [
   }
 ];
 
+const optionSortingActive = `Popular`;
+
 it(`Render SortingOptions`, () => {
   const tree = renderer.create(
       <SortingOptions
         offers={offers}
+        optionSortingActive={optionSortingActive}
         onSortOptionClick={() => {}}
+        opened={false}
+        onToggleShowMenu={() => {}}
+        onCloseMenu={() => {}}
       />)
     .toJSON();
 

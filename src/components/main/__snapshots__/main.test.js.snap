@@ -228,6 +228,7 @@ Array [
               </span>
               <span
                 className="places__sorting-type"
+                onClick={[Function]}
                 tabIndex={0}
               >
                 Popular
@@ -243,27 +244,32 @@ Array [
               </span>
               <ul
                 className="places__options places__options--custom"
+                onClick={[Function]}
               >
                 <li
                   className="places__option places__option--active"
+                  data-value="Popular"
                   tabIndex={0}
                 >
                   Popular
                 </li>
                 <li
                   className="places__option"
+                  data-value="Price: low to high"
                   tabIndex={0}
                 >
                   Price: low to high
                 </li>
                 <li
                   className="places__option"
+                  data-value="Price: high to low"
                   tabIndex={0}
                 >
                   Price: high to low
                 </li>
                 <li
                   className="places__option"
+                  data-value="Top rated first"
                   tabIndex={0}
                 >
                   Top rated first

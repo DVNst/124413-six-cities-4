@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render withOpen 1`] = `
+<withOpenWrapped
+  onCloseMenu={[Function]}
+  onToggleShowMenu={[Function]}
+  opened={false}
+/>
+`;

@@ -2,7 +2,6 @@ import {extend} from './utils.js';
 
 import {cities} from './mocks/cities.js';
 import {offers} from './mocks/offers.js';
-
 const cityActive = cities[0];
 
 const initialState = {

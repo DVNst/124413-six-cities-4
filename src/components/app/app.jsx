@@ -9,6 +9,10 @@ import OfferCard from '../offer-card/offer-card.jsx';
 
 import {offers as offersForCard} from '../../mocks/offers.js';
 
+const _getOffers = (offers, cityActive) => {
+  return (cityActive) ? offers.filter((offer) => (offer.city === cityActive.name)) : {};
+};
+
 const App = ({cities, offers, cityActive, onLocationClick, onSortOptionClick, optionSortingActive, reviews, offerScreen, onOfferTitleClick}) => {
 
   const _getReviews = (offersId) => {
@@ -107,7 +111,7 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  offers: state.offers,
+  offers: _getOffers(state.offers, state.cityActive),
   cityActive: state.cityActive,
   optionSortingActive: state.optionSortingActive,
   offerScreen: state.offerScreen,
@@ -116,7 +120,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   onLocationClick(city) {
     dispatch(ActionCreator.selectCity(city));
-    dispatch(ActionCreator.getOffers(city));
   },
   onSortOptionClick(option) {
     dispatch(ActionCreator.setOptionSort(option));

@@ -99,6 +99,7 @@ const optionSortingActive = `Popular`;
 
 it(`Pressed on title offer returns the correct callback (offer screen)`, () => {
   const store = mockStore({});
+  const onOfferTitleClick = jest.fn();
 
   const appScreen = mount(
       <Provider store={store}>
@@ -110,6 +111,8 @@ it(`Pressed on title offer returns the correct callback (offer screen)`, () => {
           onLocationClick={() => {}}
           onSortOptionClick={() => {}}
           optionSortingActive={optionSortingActive}
+          offerScreen={null}
+          onOfferTitleClick={onOfferTitleClick}
         />
       </Provider>
   );
@@ -120,6 +123,6 @@ it(`Pressed on title offer returns the correct callback (offer screen)`, () => {
   const firstOfferTitle = appScreen.find(`.place-card__name a`).at(1);
   firstOfferTitle.simulate(`click`);
 
-  expect(appScreen.find(`.page__main--index`).length).toBe(0);
-  expect(appScreen.find(`.page__main--property`).length).toBe(1);
+  expect(onOfferTitleClick.mock.calls.length).toBe(1);
+  expect(onOfferTitleClick.mock.calls[0][0]).toBe(offers[1]);
 });

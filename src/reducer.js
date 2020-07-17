@@ -13,12 +13,14 @@ const initialState = {
   cityActive: cities[0],
   offers: _getOffers(offersAll, cities[0]),
   optionSortingActive: Object.values(sortingOptions)[0],
+  offerScreen: null,
 };
 
 const ActionType = {
   SELECT_CITY: `SELECT_CITY`,
   GET_OFFERS: `GET_OFFERS`,
   SET_OPTION_SORT: `SET_OPTION_SORT`,
+  SET_OFFER_SCREEN: `SET_OFFER_SCREEN`,
 };
 
 const ActionCreator = {
@@ -36,6 +38,11 @@ const ActionCreator = {
     type: ActionType.SET_OPTION_SORT,
     payload: option,
   }),
+
+  setOfferScreen: (offer) => ({
+    type: ActionType.SET_OFFER_SCREEN,
+    payload: offer,
+  }),
 };
 
 const reducer = (state = initialState, action) => {
@@ -48,6 +55,9 @@ const reducer = (state = initialState, action) => {
 
     case ActionType.SET_OPTION_SORT:
       return extend(state, {optionSortingActive: action.payload});
+
+    case ActionType.SET_OFFER_SCREEN:
+      return extend(state, {offerScreen: action.payload});
   }
 
   return state;

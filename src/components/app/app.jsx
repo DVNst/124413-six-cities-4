@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
@@ -9,40 +9,19 @@ import OfferCard from '../offer-card/offer-card.jsx';
 
 import {offers as offersForCard} from '../../mocks/offers.js';
 
-class App extends PureComponent {
-  constructor(props) {
-    super(props);
-    this._handleOfferTitleClick = this._handleOfferTitleClick.bind(this);
-    this._renderOfferScreen = this._renderOfferScreen.bind(this);
-    this._getReviews = this._getReviews.bind(this);
+const App = ({cities, offers, cityActive, onLocationClick, onSortOptionClick, optionSortingActive, reviews, offerScreen, onOfferTitleClick}) => {
 
-    this.state = {
-      offerScreen: false,
-    };
-  }
-
-  _handleOfferTitleClick(offer) {
-    this.setState({
-      offerScreen: offer,
-    });
-  }
-
-  _getReviews(offersId) {
-    const {reviews} = this.props;
-
+  const _getReviews = (offersId) => {
     return reviews.filter((review) => review.offersId === offersId);
-  }
+  };
 
-  _renderOfferScreen() {
-    const {offerScreen} = this.state;
-    const {cities, offers, cityActive, onLocationClick, onSortOptionClick, optionSortingActive} = this.props;
-
+  const _renderOfferScreen = () => {
     if (offerScreen) {
       return (
         <OfferCard
           offer={offerScreen}
-          reviews={this._getReviews(offerScreen.id)}
-          onOfferTitleClick={this._handleOfferTitleClick}
+          reviews={_getReviews(offerScreen.id)}
+          onOfferTitleClick={onOfferTitleClick}
         />
       );
     } else {
@@ -50,7 +29,7 @@ class App extends PureComponent {
         <Main
           cities={cities}
           offers={offers}
-          onOfferTitleClick={this._handleOfferTitleClick}
+          onOfferTitleClick={onOfferTitleClick}
           cityActive={cityActive}
           onLocationClick={onLocationClick}
           onSortOptionClick={onSortOptionClick}
@@ -58,31 +37,27 @@ class App extends PureComponent {
         />
       );
     }
-  }
+  };
 
-  render() {
-    const {offers} = this.props;
-
-    return (
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/">
-            {this._renderOfferScreen()}
-          </Route>
-          <Route exact path="/offer-card">
-            {(offers) &&
-              <OfferCard
-                offer={offersForCard[0]}
-                reviews={this._getReviews(offersForCard[0].id)}
-                onOfferTitleClick={this._handleOfferTitleClick}
-              />
-            }
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    );
-  }
-}
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          {_renderOfferScreen()}
+        </Route>
+        <Route exact path="/offer-card">
+          {(offers) &&
+            <OfferCard
+              offer={offersForCard[0]}
+              reviews={_getReviews(offersForCard[0].id)}
+              onOfferTitleClick={onOfferTitleClick}
+            />
+          }
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  );
+};
 
 App.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.shape({
@@ -116,12 +91,26 @@ App.propTypes = {
   onLocationClick: PropTypes.func.isRequired,
   onSortOptionClick: PropTypes.func.isRequired,
   optionSortingActive: PropTypes.string.isRequired,
+  offerScreen: PropTypes.shape({
+    id: PropTypes.number,
+    city: PropTypes.string,
+    placeName: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    period: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    mark: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
+    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
+  }),
+  onOfferTitleClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   offers: state.offers,
   cityActive: state.cityActive,
   optionSortingActive: state.optionSortingActive,
+  offerScreen: state.offerScreen,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -131,6 +120,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   onSortOptionClick(option) {
     dispatch(ActionCreator.setOptionSort(option));
+  },
+  onOfferTitleClick(offer) {
+    dispatch(ActionCreator.setOfferScreen(offer));
   },
 });
 

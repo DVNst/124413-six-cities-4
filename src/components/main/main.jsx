@@ -54,7 +54,7 @@ const Main = ({cities, offers, onOfferTitleClick, cityActive, onLocationClick, o
                       offers={offersSorting}
                       onOfferTitleClick={onOfferTitleClick}
                       onOfferCardHover={onOfferCardHover}
-                      offerclassName={`cities`}
+                      offerClassName={`cities`}
                     />
                   </div>
                 </section>

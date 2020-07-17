@@ -28,7 +28,7 @@ const offerWithoutMark = {
   coordinates: [52.36, 4.84],
 };
 
-const offerclassName = `cities`;
+const offerClassName = `cities`;
 
 it(`Render Offer with mark`, () => {
   const tree = renderer.create(
@@ -36,7 +36,7 @@ it(`Render Offer with mark`, () => {
         offer={offerWithMark}
         onOfferTitleClick={() =>{}}
         onOfferCardHover={() =>{}}
-        offerclassName={offerclassName}
+        offerClassName={offerClassName}
       />)
     .toJSON();
 
@@ -49,7 +49,7 @@ it(`Render Offer without mark`, () => {
         offer={offerWithoutMark}
         onOfferTitleClick={() =>{}}
         onOfferCardHover={() =>{}}
-        offerclassName={offerclassName}
+        offerClassName={offerClassName}
       />)
     .toJSON();
 

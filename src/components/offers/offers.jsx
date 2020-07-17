@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import Offer from '../offer/offer.jsx';
 
-const Offers = ({offers, onOfferTitleClick, onOfferCardHover, offerclassName}) => {
+const Offers = ({offers, onOfferTitleClick, onOfferCardHover, offerClassName}) => {
   return (
     <Fragment>
       {offers.map((offer) =>
@@ -11,7 +11,7 @@ const Offers = ({offers, onOfferTitleClick, onOfferCardHover, offerclassName}) =
           offer={offer}
           onOfferTitleClick={onOfferTitleClick}
           onOfferCardHover={onOfferCardHover}
-          offerclassName={offerclassName}
+          offerClassName={offerClassName}
         />
       )}
     </Fragment>
@@ -33,7 +33,7 @@ Offers.propTypes = {
   })).isRequired,
   onOfferTitleClick: PropTypes.func.isRequired,
   onOfferCardHover: PropTypes.func.isRequired,
-  offerclassName: PropTypes.string.isRequired,
+  offerClassName: PropTypes.string.isRequired,
 };
 
 export default Offers;

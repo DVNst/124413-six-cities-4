@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Offer = ({offer, onOfferTitleClick, onOfferCardHover, offerclassName}) => {
+const Offer = ({offer, onOfferTitleClick, onOfferCardHover, offerClassName}) => {
   const {placeName, type, price, period, rating, mark, img} = offer;
   const ratingStars = rating / 5 * 100;
 
-  const articleClassName = (offerclassName === `cities`) ? `${offerclassName}__place-card` : `${offerclassName}__card`;
+  const articleClassName = (offerClassName === `cities`) ? `${offerClassName}__place-card` : `${offerClassName}__card`;
 
   return (
     <article
@@ -18,7 +18,7 @@ const Offer = ({offer, onOfferTitleClick, onOfferCardHover, offerclassName}) => 
           <span>{mark}</span>
         </div>
       }
-      <div className={offerclassName + `__image-wrapper place-card__image-wrapper`}>
+      <div className={offerClassName + `__image-wrapper place-card__image-wrapper`}>
         <a href="#">
           <img className="place-card__image" src={img} width={260} height={200} alt={placeName} />
         </a>
@@ -72,7 +72,7 @@ Offer.propTypes = {
   }).isRequired,
   onOfferTitleClick: PropTypes.func.isRequired,
   onOfferCardHover: PropTypes.func.isRequired,
-  offerclassName: PropTypes.string.isRequired,
+  offerClassName: PropTypes.string.isRequired,
 };
 
 export default Offer;

@@ -158,7 +158,7 @@ const OfferCard = ({offer, reviews, onOfferTitleClick}) => {
                   offers={offersNearby}
                   onOfferTitleClick={onOfferTitleClick}
                   onOfferCardHover={()=>{}}
-                  offerclassName={`near-places`}
+                  offerClassName={`near-places`}
                 />
               </div>
             </section>

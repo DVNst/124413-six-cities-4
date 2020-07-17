@@ -16,7 +16,7 @@ const SortingOptionsWrapper = withOpen(SortingOptions);
 
 const Main = ({cities, offers, onOfferTitleClick, cityActive, onLocationClick, optionSortingActive, onSortOptionClick, activeItemId, onOfferCardHover}) => {
   const offersCount = offers.length;
-  const empty = (offersCount <= 0);
+  const empty = (offersCount = 0);
   const offersSorting = filteredOffers(offers, optionSortingActive);
 
   return (

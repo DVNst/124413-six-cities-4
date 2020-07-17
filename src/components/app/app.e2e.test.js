@@ -95,6 +95,7 @@ const reviews = [
 ];
 
 const cityActive = {name: `Paris`, coordinates: [1, 1]};
+const optionSortingActive = `Popular`;
 
 it(`Pressed on title offer returns the correct callback (offer screen)`, () => {
   const store = mockStore({});
@@ -107,6 +108,8 @@ it(`Pressed on title offer returns the correct callback (offer screen)`, () => {
           reviews={reviews}
           cityActive={cityActive}
           onLocationClick={() => {}}
+          onSortOptionClick={() => {}}
+          optionSortingActive={optionSortingActive}
         />
       </Provider>
   );

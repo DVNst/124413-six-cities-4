@@ -90,7 +90,7 @@ const reviews = [
 ];
 
 const cityActive = {name: `Paris`, coordinates: [1, 1]};
-
+const optionSortingActive = `Popular`;
 
 it(`Render App`, () => {
   const store = mockStore({});
@@ -103,6 +103,8 @@ it(`Render App`, () => {
           reviews={reviews}
           cityActive={cityActive}
           onLocationClick={() => {}}
+          onSortOptionClick={() => {}}
+          optionSortingActive={optionSortingActive}
         />
       </Provider>)
     .toJSON();

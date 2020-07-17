@@ -1,17 +1,24 @@
 import {extend} from './utils.js';
 
 import {cities} from './mocks/cities.js';
-import {offers} from './mocks/offers.js';
-const cityActive = cities[0];
+import {offers as offersAll} from './mocks/offers.js';
+import {sortingOptions} from './const.js';
+
+const _getOffers = (offers, cityActive) => {
+  return (cityActive) ? offers.filter((offer) => (offer.city === cityActive.name)) : {};
+};
 
 const initialState = {
-  cityActive,
-  offers,
+  offersAll,
+  cityActive: cities[0],
+  offers: _getOffers(offersAll, cities[0]),
+  optionSortingActive: Object.values(sortingOptions)[0],
 };
 
 const ActionType = {
   SELECT_CITY: `SELECT_CITY`,
   GET_OFFERS: `GET_OFFERS`,
+  SET_OPTION_SORT: `SET_OPTION_SORT`,
 };
 
 const ActionCreator = {
@@ -24,6 +31,11 @@ const ActionCreator = {
     type: ActionType.GET_OFFERS,
     payload: city,
   }),
+
+  setOptionSort: (option) => ({
+    type: ActionType.SET_OPTION_SORT,
+    payload: option,
+  }),
 };
 
 const reducer = (state = initialState, action) => {
@@ -32,7 +44,10 @@ const reducer = (state = initialState, action) => {
       return extend(state, {cityActive: action.payload});
 
     case ActionType.GET_OFFERS:
-      return extend(state, {offers});
+      return extend(state, {offers: _getOffers(state.offersAll, action.payload)});
+
+    case ActionType.SET_OPTION_SORT:
+      return extend(state, {optionSortingActive: action.payload});
   }
 
   return state;

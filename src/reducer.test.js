@@ -9,9 +9,57 @@ const cities = [
   {name: `Dusseldorf`, coordinates: [51.22172, 6.77616]},
 ];
 
+const offersAmsterdam = [
+  {
+    id: 41,
+    city: `Amsterdam`,
+    placeName: `Beautiful & luxurious apartment at great location`,
+    type: `Apartment`,
+    price: 120,
+    period: `night`,
+    rating: 4.8,
+    mark: `Premium`,
+    img: `img/apartment-01.jpg`,
+    coordinates: [52.3909553943508, 4.85309666406198],
+  }, {
+    id: 42,
+    city: `Amsterdam`,
+    placeName: `Wood and stone place`,
+    type: `Private room`,
+    price: 80,
+    period: `night`,
+    rating: 4.2,
+    mark: ``,
+    img: `img/room.jpg`,
+    coordinates: [52.369553943508, 4.85309666406198],
+  }, {
+    id: 43,
+    city: `Amsterdam`,
+    placeName: `Canal View Prinsengracht`,
+    type: `Apartment`,
+    price: 132,
+    period: `night`,
+    rating: 4.7,
+    mark: ``,
+    img: `img/apartment-02.jpg`,
+    coordinates: [52.3909553943508, 4.929309666406198],
+  }, {
+    id: 44,
+    city: `Amsterdam`,
+    placeName: `Nice, cozy, warm big bed apartment`,
+    type: `Apartment`,
+    price: 180,
+    period: `night`,
+    rating: 5,
+    mark: `Premium`,
+    img: `img/apartment-03.jpg`,
+    coordinates: [52.3809553943508, 4.939309666406198],
+  }
+];
+
 const initialState = {
-  cities: {name: `Paris`, coordinates: [48.85341, 2.3488]},
-  offers: [
+  cityActive: {name: `Paris`, coordinates: [48.85341, 2.3488]},
+  offersAll: [
     {
       id: 11,
       city: `Paris`,
@@ -114,50 +162,140 @@ const initialState = {
       coordinates: [52.3809553943508, 4.939309666406198],
     },
   ],
+  offers: [
+    {
+      id: 11,
+      city: `Paris`,
+      placeName: `City studio -Hotel de Ville Paris 4`,
+      type: `Apartment`,
+      price: 69,
+      period: `night`,
+      rating: 4.5,
+      mark: `Premium`,
+      img: `img/apartment-01.jpg`,
+      coordinates: [48.858638, 2.316295],
+    }, {
+      id: 12,
+      city: `Paris`,
+      placeName: `Direct view of Notre Dame Cathedal`,
+      type: `Private room`,
+      price: 102,
+      period: `night`,
+      rating: 4.9,
+      mark: ``,
+      img: `img/room.jpg`,
+      coordinates: [48.867564, 2.331307],
+    }, {
+      id: 13,
+      city: `Paris`,
+      placeName: `Studio 20m2 Ile Saint Louis - historical center`,
+      type: `Apartment`,
+      price: 89,
+      period: `night`,
+      rating: 4.9,
+      mark: ``,
+      img: `img/apartment-02.jpg`,
+      coordinates: [48.858163, 2.362487],
+    }, {
+      id: 14,
+      city: `Paris`,
+      placeName: `Notre Dame - Beneath Paris Rooftops`,
+      type: `Apartment`,
+      price: 140,
+      period: `night`,
+      rating: 4.7,
+      mark: `Premium`,
+      img: `img/apartment-03.jpg`,
+      coordinates: [48.850958, 2.350929],
+    }, {
+      id: 15,
+      city: `Paris`,
+      placeName: `Direct view of Jardin des Plantes`,
+      type: `Apartment`,
+      price: 109,
+      period: `night`,
+      rating: 3.7,
+      mark: `Premium`,
+      img: `img/apartment-03.jpg`,
+      coordinates: [48.842110, 2.353682],
+    }
+  ],
+  optionSortingActive: `Popular`,
 };
 
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer(void 0, {}))
     .toEqual({
-      cityActive: initialState.cities,
+      offersAll: initialState.offersAll,
+      cityActive: initialState.cityActive,
       offers: initialState.offers,
+      optionSortingActive: initialState.optionSortingActive,
     });
 });
 
 it(`Reducer should change the active city by a given value`, () => {
   expect(reducer({
-    cityActive: initialState.cities,
+    offersAll: initialState.offersAll,
+    cityActive: initialState.cityActive,
     offers: initialState.offers,
+    optionSortingActive: initialState.optionSortingActive,
   }, {
     type: ActionType.SELECT_CITY,
     payload: cities[3],
   })).toEqual({
     cityActive: cities[3],
+    offersAll: initialState.offersAll,
     offers: initialState.offers,
+    optionSortingActive: initialState.optionSortingActive,
   });
 
   expect(reducer({
-    cityActive: initialState.cities,
+    offersAll: initialState.offersAll,
+    cityActive: initialState.cityActive,
     offers: initialState.offers,
+    optionSortingActive: initialState.optionSortingActive,
   }, {
     type: ActionType.SELECT_CITY,
     payload: cities[0],
   })).toEqual({
-    cityActive: initialState.cities,
+    offersAll: initialState.offersAll,
+    cityActive: initialState.cityActive,
     offers: initialState.offers,
+    optionSortingActive: initialState.optionSortingActive,
   });
 });
 
 it(`Reducer should change offer to match the value of city`, () => {
   expect(reducer({
-    cityActive: initialState.cities,
+    offersAll: initialState.offersAll,
+    cityActive: initialState.cityActive,
     offers: initialState.offers,
+    optionSortingActive: initialState.optionSortingActive,
   }, {
     type: ActionType.GET_OFFERS,
-    payload: null,
+    payload: cities[3],
   })).toEqual({
-    cityActive: initialState.cities,
+    offersAll: initialState.offersAll,
+    cityActive: initialState.cityActive,
+    offers: offersAmsterdam,
+    optionSortingActive: initialState.optionSortingActive,
+  });
+});
+
+it(`Reducer should change optionSortingActive`, () => {
+  expect(reducer({
+    offersAll: initialState.offersAll,
+    cityActive: initialState.cityActive,
     offers: initialState.offers,
+    optionSortingActive: initialState.optionSortingActive,
+  }, {
+    type: ActionType.SET_OPTION_SORT,
+    payload: `Top rated first`,
+  })).toEqual({
+    offersAll: initialState.offersAll,
+    cityActive: initialState.cityActive,
+    offers: initialState.offers,
+    optionSortingActive: `Top rated first`,
   });
 });
 
@@ -185,6 +323,13 @@ describe(`Action creators work correctly`, () => {
         name: `Paris`,
         coordinates: [48.85341, 2.3488]
       },
+    });
+  });
+
+  it(`Action creator for get optionSortingActive returns correct action`, () => {
+    expect(ActionCreator.setOptionSort(`Top rated first`)).toEqual({
+      type: ActionType.SET_OPTION_SORT,
+      payload: `Top rated first`,
     });
   });
 });

@@ -10,7 +10,7 @@ const Offer = ({offer, onOfferTitleClick, onOfferCardHover, offerclassName}) => 
   return (
     <article
       className={articleClassName + ` place-card`}
-      onMouseOver={() => onOfferCardHover(offer)}
+      onMouseOver={() => onOfferCardHover(offer.id)}
       onMouseOut={() => onOfferCardHover(null)}
     >
       {mark &&

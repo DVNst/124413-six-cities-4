@@ -9,10 +9,6 @@ import OfferCard from '../offer-card/offer-card.jsx';
 
 import {offers as offersForCard} from '../../mocks/offers.js';
 
-const _getOffers = (offers, cityActive) => {
-  return (cityActive) ? offers.filter((offer) => (offer.city === cityActive.name)) : {};
-};
-
 class App extends PureComponent {
   constructor(props) {
     super(props);
@@ -31,9 +27,15 @@ class App extends PureComponent {
     });
   }
 
+  _getReviews(offersId) {
+    const {reviews} = this.props;
+
+    return reviews.filter((review) => review.offersId === offersId);
+  }
+
   _renderOfferScreen() {
     const {offerScreen} = this.state;
-    const {cities, offers, cityActive, onLocationClick} = this.props;
+    const {cities, offers, cityActive, onLocationClick, onSortOptionClick, optionSortingActive} = this.props;
 
     if (offerScreen) {
       return (
@@ -51,15 +53,11 @@ class App extends PureComponent {
           onOfferTitleClick={this._handleOfferTitleClick}
           cityActive={cityActive}
           onLocationClick={onLocationClick}
+          onSortOptionClick={onSortOptionClick}
+          optionSortingActive={optionSortingActive}
         />
       );
     }
-  }
-
-  _getReviews(offersId) {
-    const {reviews} = this.props;
-
-    return reviews.filter((review) => review.offersId === offersId);
   }
 
   render() {
@@ -116,17 +114,23 @@ App.propTypes = {
     coordinates: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
   }),
   onLocationClick: PropTypes.func.isRequired,
+  onSortOptionClick: PropTypes.func.isRequired,
+  optionSortingActive: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  offers: _getOffers(state.offers, state.cityActive),
+  offers: state.offers,
   cityActive: state.cityActive,
+  optionSortingActive: state.optionSortingActive,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   onLocationClick(city) {
     dispatch(ActionCreator.selectCity(city));
-    dispatch(ActionCreator.getOffers());
+    dispatch(ActionCreator.getOffers(city));
+  },
+  onSortOptionClick(option) {
+    dispatch(ActionCreator.setOptionSort(option));
   },
 });
 

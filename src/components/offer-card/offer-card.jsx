@@ -146,7 +146,7 @@ const OfferCard = ({offer, reviews, onOfferTitleClick}) => {
               <Map
                 coordinates={coordinates}
                 offers={offersNearby.concat(offer)}
-                offerActive={offer}
+                offerActive={offer.id}
               />
             </section>
           </section>

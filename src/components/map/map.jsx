@@ -13,7 +13,7 @@ class Map extends PureComponent {
   _addMarkers(offers, offerActive) {
     let markers = [];
     offers.map((offer) => {
-      const iconMarker = (offer === offerActive) ? this.iconActive : this.icon;
+      const iconMarker = (offer.id === offerActive) ? this.iconActive : this.icon;
       markers.push(leaflet.marker(offer.coordinates, {icon: iconMarker}));
     });
 
@@ -92,18 +92,7 @@ Map.propTypes = {
     img: PropTypes.string.isRequired,
     coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
   })).isRequired,
-  offerActive: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    city: PropTypes.string.isRequired,
-    placeName: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    period: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    mark: PropTypes.string.isRequired,
-    img: PropTypes.string.isRequired,
-    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
-  }),
+  offerActive: PropTypes.number,
 };
 
 export default Map;

@@ -10,7 +10,7 @@ const cities = [
 ];
 
 const initialState = {
-  cities: {name: `Paris`, coordinates: [48.85341, 2.3488]},
+  cityActive: {name: `Paris`, coordinates: [48.85341, 2.3488]},
   offers: [
     {
       id: 11,
@@ -114,50 +114,105 @@ const initialState = {
       coordinates: [52.3809553943508, 4.939309666406198],
     },
   ],
+  optionSortingActive: `Popular`,
+  offerScreen: null,
 };
 
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer(void 0, {}))
     .toEqual({
-      cityActive: initialState.cities,
+      cityActive: initialState.cityActive,
       offers: initialState.offers,
+      optionSortingActive: initialState.optionSortingActive,
+      offerScreen: initialState.offerScreen,
     });
 });
 
 it(`Reducer should change the active city by a given value`, () => {
   expect(reducer({
-    cityActive: initialState.cities,
+    cityActive: initialState.cityActive,
     offers: initialState.offers,
+    optionSortingActive: initialState.optionSortingActive,
+    offerScreen: initialState.offerScreen,
   }, {
     type: ActionType.SELECT_CITY,
     payload: cities[3],
   })).toEqual({
     cityActive: cities[3],
     offers: initialState.offers,
+    optionSortingActive: initialState.optionSortingActive,
+    offerScreen: initialState.offerScreen,
   });
 
   expect(reducer({
-    cityActive: initialState.cities,
+    cityActive: initialState.cityActive,
     offers: initialState.offers,
+    optionSortingActive: initialState.optionSortingActive,
+    offerScreen: initialState.offerScreen,
   }, {
     type: ActionType.SELECT_CITY,
     payload: cities[0],
   })).toEqual({
-    cityActive: initialState.cities,
+    cityActive: initialState.cityActive,
     offers: initialState.offers,
+    optionSortingActive: initialState.optionSortingActive,
+    offerScreen: initialState.offerScreen,
   });
 });
 
-it(`Reducer should change offer to match the value of city`, () => {
+it(`Reducer should change optionSortingActive`, () => {
   expect(reducer({
-    cityActive: initialState.cities,
+    cityActive: initialState.cityActive,
     offers: initialState.offers,
+    optionSortingActive: initialState.optionSortingActive,
+    offerScreen: initialState.offerScreen,
   }, {
-    type: ActionType.GET_OFFERS,
-    payload: null,
+    type: ActionType.SET_OPTION_SORT,
+    payload: `Top rated first`,
   })).toEqual({
-    cityActive: initialState.cities,
+    cityActive: initialState.cityActive,
     offers: initialState.offers,
+    optionSortingActive: `Top rated first`,
+    offerScreen: initialState.offerScreen,
+  });
+});
+
+it(`Reducer should change offerScreen`, () => {
+  expect(reducer({
+    cityActive: initialState.cityActive,
+    offers: initialState.offers,
+    optionSortingActive: initialState.optionSortingActive,
+    offerScreen: initialState.offerScreen,
+  }, {
+    type: ActionType.SET_OFFER_SCREEN,
+    payload: {
+      id: 41,
+      city: `Amsterdam`,
+      placeName: `Beautiful & luxurious apartment at great location`,
+      type: `Apartment`,
+      price: 120,
+      period: `night`,
+      rating: 4.8,
+      mark: `Premium`,
+      img: `img/apartment-01.jpg`,
+      coordinates: [52.3909553943508, 4.85309666406198],
+    },
+  })).toEqual({
+    cityActive: initialState.cityActive,
+    offers: initialState.offers,
+    optionSortingActive: initialState.optionSortingActive,
+    offerScreen: {
+      id: 41,
+      city: `Amsterdam`,
+      placeName: `Beautiful & luxurious apartment at great location`,
+      type: `Apartment`,
+      price: 120,
+      period: `night`,
+      rating: 4.8,
+      mark: `Premium`,
+      img: `img/apartment-01.jpg`,
+      coordinates: [52.3909553943508, 4.85309666406198],
+    },
   });
 });
 
@@ -175,15 +230,38 @@ describe(`Action creators work correctly`, () => {
     });
   });
 
-  it(`Action creator for get offers returns correct action`, () => {
-    expect(ActionCreator.getOffers({
-      name: `Paris`,
-      coordinates: [48.85341, 2.3488]
+  it(`Action creator for get optionSortingActive returns correct action`, () => {
+    expect(ActionCreator.setOptionSort(`Top rated first`)).toEqual({
+      type: ActionType.SET_OPTION_SORT,
+      payload: `Top rated first`,
+    });
+  });
+
+  it(`Action creator for get offerScreen returns correct action`, () => {
+    expect(ActionCreator.setOfferScreen({
+      id: 41,
+      city: `Amsterdam`,
+      placeName: `Beautiful & luxurious apartment at great location`,
+      type: `Apartment`,
+      price: 120,
+      period: `night`,
+      rating: 4.8,
+      mark: `Premium`,
+      img: `img/apartment-01.jpg`,
+      coordinates: [52.3909553943508, 4.85309666406198],
     })).toEqual({
-      type: ActionType.GET_OFFERS,
+      type: ActionType.SET_OFFER_SCREEN,
       payload: {
-        name: `Paris`,
-        coordinates: [48.85341, 2.3488]
+        id: 41,
+        city: `Amsterdam`,
+        placeName: `Beautiful & luxurious apartment at great location`,
+        type: `Apartment`,
+        price: 120,
+        period: `night`,
+        rating: 4.8,
+        mark: `Premium`,
+        img: `img/apartment-01.jpg`,
+        coordinates: [52.3909553943508, 4.85309666406198],
       },
     });
   });

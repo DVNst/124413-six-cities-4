@@ -3,25 +3,10 @@ import PropTypes from 'prop-types';
 
 import {sortingOptions} from '../../const.js';
 
-const SortingOptions = ({offers, optionSortingActive, onSortOptionClick, opened, onToggleShowMenu, onCloseMenu}) => {
+const SortingOptions = ({optionSortingActive, onSortOptionClick, opened, onToggleShowMenu, onCloseMenu}) => {
   const _handleSortOptionClick = (optionSorting) => {
-    onSortOptionClick(optionSorting, filteredOffers(optionSorting));
+    onSortOptionClick(optionSorting);
     onCloseMenu();
-  };
-
-  const filteredOffers = (optionName) => {
-    switch (optionName) {
-      case sortingOptions.POPULAR:
-        return offers;
-      case sortingOptions.PRICE_LOW:
-        return offers.slice().sort((offerPrev, offerNext) => (offerPrev.price > offerNext.price) ? 1 : -1);
-      case sortingOptions.PRICE_HIGH:
-        return offers.slice().sort((offerPrev, offerNext) => (offerPrev.price > offerNext.price) ? -1 : 1);
-      case sortingOptions.RATED:
-        return offers.slice().sort((offerPrev, offerNext) => (offerPrev.rating > offerNext.rating) ? -1 : 1);
-      default:
-        return offers;
-    }
   };
 
   return (
@@ -60,18 +45,6 @@ const SortingOptions = ({offers, optionSortingActive, onSortOptionClick, opened,
 };
 
 SortingOptions.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    city: PropTypes.string.isRequired,
-    placeName: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    period: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    mark: PropTypes.string.isRequired,
-    img: PropTypes.string.isRequired,
-    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
-  })).isRequired,
   optionSortingActive: PropTypes.string.isRequired,
   onSortOptionClick: PropTypes.func.isRequired,
   opened: PropTypes.bool.isRequired,

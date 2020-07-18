@@ -20,7 +20,7 @@ const offer = {
   coordinates: [52.39, 4.85],
 };
 
-const offerclassName = `cities`;
+const offerClassName = `cities`;
 
 it(`Should title offer be pressed`, () => {
   const onOfferTitleClick = jest.fn();
@@ -30,7 +30,7 @@ it(`Should title offer be pressed`, () => {
         offer = {offer}
         onOfferTitleClick={onOfferTitleClick}
         onOfferCardHover={() =>{}}
-        offerclassName={offerclassName}
+        offerClassName={offerClassName}
       />
   );
 

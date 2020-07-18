@@ -62,6 +62,9 @@ const offers = [
   }
 ];
 
+const optionSortingActive = `Popular`;
+const activeItemId = 101;
+
 it(`Render Main`, () => {
   const tree = renderer.create(
       <Main
@@ -70,6 +73,10 @@ it(`Render Main`, () => {
         onOfferTitleClick={() =>{}}
         cityActive={cityActive}
         onLocationClick={() => {}}
+        onSortOptionClick={() => {}}
+        onOfferCardHover={() => {}}
+        optionSortingActive={optionSortingActive}
+        activeItemId={activeItemId}
       />)
     .toJSON();
 

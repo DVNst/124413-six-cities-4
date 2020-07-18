@@ -66,6 +66,9 @@ const offers = [
   }
 ];
 
+const optionSortingActive = `Popular`;
+const activeItemId = 101;
+
 it(`Should title offer be pressed`, () => {
   const onOfferTitleClick = jest.fn();
 
@@ -76,6 +79,10 @@ it(`Should title offer be pressed`, () => {
         onOfferTitleClick={onOfferTitleClick}
         cityActive={cityActive}
         onLocationClick={() => {}}
+        onSortOptionClick={() => {}}
+        onOfferCardHover={() => {}}
+        optionSortingActive={optionSortingActive}
+        activeItemId={activeItemId}
       />
   );
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import withOpen from './with-open.js';
+import withActiveItem from './with-active-item.js';
 
 const MockComponent = () => {
   return (
@@ -9,14 +9,13 @@ const MockComponent = () => {
   );
 };
 
-const withOpenWrapped = withOpen(MockComponent);
+const withActiveItemWrapped = withActiveItem(MockComponent);
 
 it(`Render withOpen`, () => {
   const tree = renderer.create(
-      <withOpenWrapped
-        opened={false}
-        onToggleShowMenu={() => {}}
-        onCloseMenu={() => {}}
+      <withActiveItemWrapped
+        activeItemId={null}
+        onOfferCardHover={() => {}}
       />)
     .toJSON();
 

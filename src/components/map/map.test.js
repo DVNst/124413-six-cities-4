@@ -58,6 +58,7 @@ it(`Should Map render correctly`, () => {
         <Map
           offers={offers}
           coordinates={coordinates}
+          offerActive={101}
         />)
     .toJSON();
 

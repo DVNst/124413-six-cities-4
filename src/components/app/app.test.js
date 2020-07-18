@@ -90,9 +90,9 @@ const reviews = [
 ];
 
 const cityActive = {name: `Paris`, coordinates: [1, 1]};
+const optionSortingActive = `Popular`;
 
-
-it(`Render App`, () => {
+it(`Render App Main`, () => {
   const store = mockStore({});
 
   const tree = renderer.create(
@@ -103,6 +103,32 @@ it(`Render App`, () => {
           reviews={reviews}
           cityActive={cityActive}
           onLocationClick={() => {}}
+          onSortOptionClick={() => {}}
+          optionSortingActive={optionSortingActive}
+          offerScreen={null}
+          onOfferTitleClick={() => {}}
+        />
+      </Provider>)
+    .toJSON();
+
+  expect(tree).toMatchSnapshot();
+});
+
+it(`Render App OfferCard`, () => {
+  const store = mockStore({});
+
+  const tree = renderer.create(
+      <Provider store={store}>
+        <App
+          cities={cities}
+          offers={offers}
+          reviews={reviews}
+          cityActive={cityActive}
+          onLocationClick={() => {}}
+          onSortOptionClick={() => {}}
+          optionSortingActive={optionSortingActive}
+          offerScreen={offers[0]}
+          onOfferTitleClick={() => {}}
         />
       </Provider>)
     .toJSON();
